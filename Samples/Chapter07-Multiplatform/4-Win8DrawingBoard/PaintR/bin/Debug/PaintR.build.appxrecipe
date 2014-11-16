@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>PC-JMA</Machine>
+    <WindowsUser>JoséMaría</WindowsUser>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\JoséMaría\Desktop\SignalRProgramming_codesamples\SignalRProgramming_codesamples\Chapter07-Multiplatform\4-Win8DrawingBoard\PaintR\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\JoséMaría\Desktop\SignalRProgramming_codesamples\SignalRProgramming_codesamples\Chapter07-Multiplatform\4-Win8DrawingBoard\PaintR\bin\Debug\PaintR.exe">
+      <PackagePath>PaintR.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\JoséMaría\Desktop\SignalRProgramming_codesamples\SignalRProgramming_codesamples\Chapter07-Multiplatform\4-Win8DrawingBoard\PaintR\bin\Debug\PaintR.pdb">
+      <PackagePath>PaintR.pdb</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\JoséMaría\Desktop\SignalRProgramming_codesamples\SignalRProgramming_codesamples\Chapter07-Multiplatform\4-Win8DrawingBoard\packages\Microsoft.AspNet.SignalR.Client.2.0.0\lib\portable-net45+sl5+netcore45+wp8\Microsoft.AspNet.SignalR.Client.dll">
+      <PackagePath>Microsoft.AspNet.SignalR.Client.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\JoséMaría\Desktop\SignalRProgramming_codesamples\SignalRProgramming_codesamples\Chapter07-Multiplatform\4-Win8DrawingBoard\packages\Newtonsoft.Json.5.0.6\lib\netcore45\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\JoséMaría\Desktop\SignalRProgramming_codesamples\SignalRProgramming_codesamples\Chapter07-Multiplatform\4-Win8DrawingBoard\packages\Microsoft.Net.Http.2.2.15\lib\win8\System.Net.Http.Extensions.dll">
+      <PackagePath>System.Net.Http.Extensions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\JoséMaría\Desktop\SignalRProgramming_codesamples\SignalRProgramming_codesamples\Chapter07-Multiplatform\4-Win8DrawingBoard\packages\Microsoft.Net.Http.2.2.15\lib\win8\System.Net.Http.Primitives.dll">
+      <PackagePath>System.Net.Http.Primitives.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\JoséMaría\Desktop\SignalRProgramming_codesamples\SignalRProgramming_codesamples\Chapter07-Multiplatform\4-Win8DrawingBoard\PaintR\Assets\Logo - black.png">
+      <PackagePath>Assets\Logo - black.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\JoséMaría\Desktop\SignalRProgramming_codesamples\SignalRProgramming_codesamples\Chapter07-Multiplatform\4-Win8DrawingBoard\PaintR\Assets\Logo.png">
+      <PackagePath>Assets\Logo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\JoséMaría\Desktop\SignalRProgramming_codesamples\SignalRProgramming_codesamples\Chapter07-Multiplatform\4-Win8DrawingBoard\PaintR\Assets\SmallLogo.png">
+      <PackagePath>Assets\SmallLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\JoséMaría\Desktop\SignalRProgramming_codesamples\SignalRProgramming_codesamples\Chapter07-Multiplatform\4-Win8DrawingBoard\PaintR\Assets\SplashScreen.png">
+      <PackagePath>Assets\SplashScreen.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\JoséMaría\Desktop\SignalRProgramming_codesamples\SignalRProgramming_codesamples\Chapter07-Multiplatform\4-Win8DrawingBoard\PaintR\Assets\StoreLogo.png">
+      <PackagePath>Assets\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\JoséMaría\Desktop\SignalRProgramming_codesamples\SignalRProgramming_codesamples\Chapter07-Multiplatform\4-Win8DrawingBoard\PaintR\bin\Debug\App.xaml">
+      <PackagePath>App.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\JoséMaría\Desktop\SignalRProgramming_codesamples\SignalRProgramming_codesamples\Chapter07-Multiplatform\4-Win8DrawingBoard\PaintR\bin\Debug\Common\StandardStyles.xaml">
+      <PackagePath>Common\StandardStyles.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\JoséMaría\Desktop\SignalRProgramming_codesamples\SignalRProgramming_codesamples\Chapter07-Multiplatform\4-Win8DrawingBoard\PaintR\bin\Debug\MainPage.xaml">
+      <PackagePath>MainPage.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\JoséMaría\Desktop\SignalRProgramming_codesamples\SignalRProgramming_codesamples\Chapter07-Multiplatform\4-Win8DrawingBoard\PaintR\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

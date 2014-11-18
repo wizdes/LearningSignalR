@@ -81,16 +81,19 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
+    <Content Include="Room.html" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
     <Content Include="Scripts\jquery.signalR-2.1.2.js" />
     <Content Include="Scripts\jquery.signalR-2.1.2.min.js" />
+    <Content Include="Scripts\Room.js" />
     <Content Include="Scripts\Tracking.js" />
     <Content Include="tracking.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoomHub.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="TrackerConnection.cs" />
   </ItemGroup>

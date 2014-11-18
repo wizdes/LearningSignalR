@@ -11,6 +11,8 @@ namespace SignalRBasic
         public void Configuration(IAppBuilder app)
         {
             app.MapSignalR<TrackerConnection>("/tracker");
+
+            app.MapSignalR();
         }
     }
 }

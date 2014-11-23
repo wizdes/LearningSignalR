@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
@@ -16,6 +17,17 @@ namespace SignalRBasic
         public void SetName(string connectionID, string name)
         {
             clientIdToName[connectionID] = name;
+            Clients.Others.BroadcastAddUser(name);
+        }
+
+        public override System.Threading.Tasks.Task OnDisconnected(bool stopCalled)
+        {
+            if (stopCalled)
+            {
+                Clients.Others.BroadcastAddUser(Context.ConnectionId + "disconnected.");
+            }
+
+            return base.OnDisconnected(stopCalled);
         }
 
         public void JoinRoom(string connectionID, string group)
@@ -41,6 +53,11 @@ namespace SignalRBasic
         public IList<string> ListPeopleInGroup()
         {
             return null;
-        } 
+        }
+
+        public Task BroadcastAddUser(string username)
+        {
+            return Clients.Others.AddUser(username);
+        }
     }
 }

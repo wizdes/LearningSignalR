@@ -7,7 +7,7 @@
     hub = $.connection.roomHub;
 
     hub.client.broadcastAddUser = function(name) {
-        $("#listInfo").append("<p>" + name + "</p>");
+        $("#listInfo").append("<div class=\"" + name + "\"><p>" + name + "</p></div>");
     };
 
     function addUser(name) {
@@ -19,16 +19,16 @@
         hub.server.listUsers().done(function(result) { result.forEach(addToParagraph); });
     };
 
+    hub.client.deleteUser = function (name) {
+        $("." + name).remove();
+    };
+
     function addToParagraph(value, index, ar) {
-        $("#listInfo").append("<p>" + value + "</p>");
+        $("#listInfo").append("<div class=\""+value+"\"><p>" + value + "</p></div>");
     };
 
     $("#Submit").click(function () {
         var value2 = $("#nickname");
         addUser(value2.val());
-    });
-
-    $("#Submit2").click(function () {
-        listUsers();
     });
 });

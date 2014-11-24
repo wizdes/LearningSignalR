@@ -24,7 +24,17 @@ namespace SignalRBasic
         {
             if (stopCalled)
             {
-                Clients.Others.BroadcastAddUser(Context.ConnectionId + "disconnected.");
+                string name = "";
+                try
+                {
+                    name = clientIdToName[Context.ConnectionId];
+                }
+                catch (Exception)
+                {
+                    return base.OnDisconnected(stopCalled);
+                }
+                clientIdToName.Remove(Context.ConnectionId);
+                Clients.Others.DeleteUser(name);
             }
 
             return base.OnDisconnected(stopCalled);

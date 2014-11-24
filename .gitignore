@@ -46,3 +46,7 @@ Temporary Items
 .suo
 
 *.suo
+
+*.pdb
+
+*.suo

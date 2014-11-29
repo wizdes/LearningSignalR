@@ -55,3 +55,7 @@ Temporary Items
 *.log
 *.cache
 *.ide
+*.dll
+*.pdb
+*.dll
+*.cache

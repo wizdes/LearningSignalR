@@ -6,7 +6,7 @@
     });
     hub = $.connection.roomHub;
 
-    hub.client.broadcastAddUser = function(name) {
+    hub.client.broadcastMessage = function(name) {
         $("#listInfo").append("<div class=\"" + name + "\"><p>" + name + "</p></div>");
     };
 
@@ -27,8 +27,23 @@
         $("#listInfo").append("<div class=\""+value+"\"><p>" + value + "</p></div>");
     };
 
-    $("#Submit").click(function () {
+    $("#AddName").click(function () {
         var value2 = $("#nickname");
         addUser(value2.val());
+        $("#nickname").val('');
+    });
+
+    $("#StartChat").click(function () {
+        hub.server.createChat("");
+    });
+
+    $("#JoinChat").click(function () {
+        var value2 = $("#chatName").val();
+        hub.server.joinRoom(value2);
+    });
+
+    $("#LeaveChat").click(function () {
+        var value2 = $("#chatName").val();
+        hub.server.leaveRoom(value2);
     });
 });

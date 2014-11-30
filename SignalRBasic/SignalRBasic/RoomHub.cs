@@ -20,6 +20,12 @@ namespace SignalRBasic
             Clients.Others.BroadcastMessage(name);
         }
 
+        public void sendMessage(string message)
+        {
+            var hubcontext = GlobalHost.ConnectionManager.GetHubContext<RoomHub>();
+            hubcontext.Clients.Group(rooms[Context.ConnectionId]).BroadcastMessage(message);
+        }
+
         public override System.Threading.Tasks.Task OnDisconnected(bool stopCalled)
         {
             if (stopCalled)
@@ -49,6 +55,7 @@ namespace SignalRBasic
             {
                 
             }
+
             var hubcontext = GlobalHost.ConnectionManager.GetHubContext<RoomHub>();
             hubcontext.Clients.Group(groupname).BroadcastMessage("Joined group: " + groupname + ".");
         }

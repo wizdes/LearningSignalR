@@ -30,11 +30,15 @@
     $("#AddName").click(function () {
         var value2 = $("#nickname");
         addUser(value2.val());
-        $("#nickname").val('');
+        $("#nickname").val("");
     });
 
     $("#StartChat").click(function () {
         hub.server.createChat("");
+    });
+
+    $("#sendMessage").click(function () {
+        hub.server.sendMessage($("#messageText").val());
     });
 
     $("#JoinChat").click(function () {

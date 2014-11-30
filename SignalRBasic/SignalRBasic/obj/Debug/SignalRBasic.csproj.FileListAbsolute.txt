@@ -33,7 +33,6 @@ C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\Micro
 C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\Microsoft.Owin.Security.xml
 C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\Newtonsoft.Json.xml
-C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\obj\Debug\SignalRBasic.csprojResolveAssemblyReference.cache
 C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\obj\Debug\SignalRBasic.dll
 C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\obj\Debug\SignalRBasic.pdb
 Z:\Users\yili\LearningSignalR\LearningSignalR\SignalRBasic\SignalRBasic\bin\SignalRBasic.dll.config

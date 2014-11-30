@@ -46,7 +46,7 @@ namespace SignalRBasic
             return base.OnDisconnected(stopCalled);
         }
 
-        public void CreateChat(string userId)
+        public string CreateChat(string userId)
         {
             string groupname = Guid.NewGuid().ToString();
             Groups.Add(Context.ConnectionId, groupname);
@@ -58,6 +58,7 @@ namespace SignalRBasic
 
             var hubcontext = GlobalHost.ConnectionManager.GetHubContext<RoomHub>();
             hubcontext.Clients.Group(groupname).BroadcastMessage("Joined group: " + groupname + ".");
+            return groupname;
         }
 
         public void JoinRoom(string groupname)

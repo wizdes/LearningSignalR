@@ -54,3 +54,4 @@ Z:\Users\yili\LearningSignalR\LearningSignalR\SignalRBasic\SignalRBasic\bin\Newt
 Z:\Users\yili\LearningSignalR\LearningSignalR\SignalRBasic\SignalRBasic\obj\Debug\SignalRBasic.csprojResolveAssemblyReference.cache
 Z:\Users\yili\LearningSignalR\LearningSignalR\SignalRBasic\SignalRBasic\obj\Debug\SignalRBasic.dll
 Z:\Users\yili\LearningSignalR\LearningSignalR\SignalRBasic\SignalRBasic\obj\Debug\SignalRBasic.pdb
+C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\obj\Debug\SignalRBasic.csprojResolveAssemblyReference.cache

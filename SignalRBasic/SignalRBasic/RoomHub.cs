@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using Microsoft.AspNet.SignalR;
-using Microsoft.AspNet.SignalR.Hubs;
 
 namespace SignalRBasic
 {
@@ -26,7 +24,7 @@ namespace SignalRBasic
             hubcontext.Clients.Group(rooms[Context.ConnectionId]).BroadcastMessage(message);
         }
 
-        public override System.Threading.Tasks.Task OnDisconnected(bool stopCalled)
+        public override Task OnDisconnected(bool stopCalled)
         {
             if (stopCalled)
             {

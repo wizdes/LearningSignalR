@@ -2,9 +2,9 @@
 var username;
 var originalTitle;
 var blinkOrder = 0;
+var hub;
 
 $(function () {
-    var hub;
     $.connection.hub.start().done(function() {
         hub = $.connection.roomHub;
         listUsers();
@@ -13,7 +13,7 @@ $(function () {
 
     hub.client.broadcastMessage = function(name) {
         $("#listInfo").append("<div class=\"" + name + "\"><p>" + name + "</p></div>");
-        if(!name.contains("Joined group")) {
+        if (name.indexOf("Joined group") == -1) {
             addToMessage("chatbox", "otherperson", name);
         }
     };
@@ -144,7 +144,6 @@ $(function () {
 
 function addToMessage(chatboxtitle, username, message) {
     $("#chatbox_" + chatboxtitle + " .chatboxcontent").append('<div class="chatboxmessage"><span class="chatboxmessagefrom">' + username + ':&nbsp;&nbsp;</span><span class="chatboxmessagecontent">' + message + '</span></div>');
-    $("#chatbox_" + chatboxtitle + " .chatboxcontent").scrollTop($("#chatbox_" + chatboxtitle + " .chatboxcontent")[0].scrollHeight);
 }
 
 function checkChatBoxInputKey(event, chatboxtextarea, chatboxtitle) {

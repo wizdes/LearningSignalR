@@ -11,16 +11,23 @@ $(function () {
     });
     hub = $.connection.roomHub;
 
-    hub.client.broadcastMessage = function(name) {
-        $("#listInfo").append("<div class=\"" + name + "\"><p>" + name + "</p></div>");
-        if (name.indexOf("Joined group") == -1) {
-            addToMessage("chatbox", "otherperson", name);
+    function handler(message) {
+        var val = $(this);
+        alert(val[0].innerText);
+    }
+
+    hub.client.broadcastMessage = function(message) {
+        $("#onlineUsers").append("<li class=\"" + message + "\"><a href=\"#\">" + message + "</a></li>");
+        $("." + message).click(JSON.stringify({name:message}),handler);
+        if (message.indexOf("Joined group") == -1) {
+            addToMessage("chatbox", "otherperson", message);
         }
     };
 
     function addUser(name) {
         var hub = $.connection.roomHub;
         hub.server.setName(hub.connection.id, name);
+        username = name;
     };
 
     function listUsers() {
@@ -32,13 +39,16 @@ $(function () {
     };
 
     function addToParagraph(value, index, ar) {
-        $("#listInfo").append("<div class=\""+value+"\"><p>" + value + "</p></div>");
+        $("#onlineUsers").append("<li class=\"" + value + "\"><a href=\"#\">" + value + "</a></li>");
+        $("." + value).click(value, handler);
     };
 
     $("#AddName").click(function () {
         var value2 = $("#nickname");
         addUser(value2.val());
-        $("#nickname").val("");
+        $(this).prop("disabled", true);
+        $(this).val("Logged in as " + value2.val());
+        $("#nickname").hide();
     });
 
     $("#StartChat").click(function () {

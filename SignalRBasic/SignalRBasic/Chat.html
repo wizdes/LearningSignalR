@@ -1,7 +1,8 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-    <title></title>
+    <title>Yi's Chat Program!</title>
+    <link rel="stylesheet" href="css/metro-bootstrap.css">
     <script src="Scripts/jquery-2.1.1.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     <script src="Scripts/jquery.signalR-2.1.2.min.js"></script>
@@ -10,40 +11,28 @@
     <script src="Scripts/Room.js"></script>
     <link type="text/css" rel="stylesheet" media="all" href="Styles/chat.css" />
     <link type="text/css" rel="stylesheet" media="all" href="Styles/screen.css" />
-    <link rel="stylesheet" href="css/metro-bootstrap.css">
     <script src="js/metro.min.js"></script>    
-
+    <script src="js/metro/metro-dropdown.js"></script>
 </head>
-<body>
+<body class="metro">
     <input type="text" id="nickname" name="firstname" />
-    <input type="button" id="AddName" value="Add Name" />
+    <input type="button" id="AddName" value="Login" />
     <br />
     <input type="button" id="StartChat" value="Create Chat" />
     <input type="text" id="chatName" name="chatname" />
     <input type="button" id="JoinChat" value="Join Chat" />
     <input type="button" id="LeaveChat" value="Leave Chat" />
-    <br />
+    <!--<br />
     <input type="text" id="messageText" name="messageText" />
-    <input type="button" id="sendMessage" value="Send Message" />
+    <input type="button" id="sendMessage" value="Send Message" />-->
     <div id="listInfo">
         <h1>Online Users:</h1>
     </div>
-    
-    <div class="metro">
-        <ul class="dropdown-menu" data-role="dropdown">
-            <li class="menu-title">This is a title</li>
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li class="menu-title">This is another title</li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li class="disabled"><a href="#">Disabled link</a></li>
-            <li class="divider"></li>
-            <li class="checked"><a href="#">Checked link</a></li>
-            <li class="unchecked"><a href="#">Unchecked link</a></li>
-        </ul>
 
-        <ul class="dropdown-menu inverse" data-role="dropdown">...</ul>        
+    <div>
+        <nav class="vertical-menu" id="onlineUsers">
+        </nav>
     </div>
+
 </body>
 </html>

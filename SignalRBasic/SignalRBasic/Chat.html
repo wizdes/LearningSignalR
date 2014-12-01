@@ -2,13 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
-    <script src="Scripts/jquery-1.6.4.min.js"></script>
+    <script src="Scripts/jquery-2.1.1.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     <script src="Scripts/jquery.signalR-2.1.2.min.js"></script>
     <script src="/signalr/js"></script>
     <script src="/Scripts/chat.js"></script>
     <script src="Scripts/Room.js"></script>
     <link type="text/css" rel="stylesheet" media="all" href="Styles/chat.css" />
     <link type="text/css" rel="stylesheet" media="all" href="Styles/screen.css" />
+    <link rel="stylesheet" href="css/metro-bootstrap.css">
+    <script src="js/metro.min.js"></script>    
+
 </head>
 <body>
     <input type="text" id="nickname" name="firstname" />
@@ -23,6 +27,23 @@
     <input type="button" id="sendMessage" value="Send Message" />
     <div id="listInfo">
         <h1>Online Users:</h1>
+    </div>
+    
+    <div class="metro">
+        <ul class="dropdown-menu" data-role="dropdown">
+            <li class="menu-title">This is a title</li>
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li class="menu-title">This is another title</li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li class="disabled"><a href="#">Disabled link</a></li>
+            <li class="divider"></li>
+            <li class="checked"><a href="#">Checked link</a></li>
+            <li class="unchecked"><a href="#">Unchecked link</a></li>
+        </ul>
+
+        <ul class="dropdown-menu inverse" data-role="dropdown">...</ul>        
     </div>
 </body>
 </html>

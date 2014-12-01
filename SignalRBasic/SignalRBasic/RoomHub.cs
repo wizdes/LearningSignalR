@@ -10,12 +10,15 @@ namespace SignalRBasic
     {
         public static Dictionary<string, string> rooms = new Dictionary<string, string>();
 
-        public static Dictionary<string, string> clientIdToName = new Dictionary<string, string>(); 
+        public static Dictionary<string, string> clientIdToName = new Dictionary<string, string>();
+
+        public static Dictionary<string, string> nameToClientId = new Dictionary<string, string>(); 
 
         public void SetName(string connectionID, string name)
         {
             clientIdToName[connectionID] = name;
-            Clients.Others.BroadcastMessage(name);
+            nameToClientId[name] = connectionID;
+            Clients.Others.BroadcastMessage(":::NEW USER:::!" + name);
         }
 
         public void sendMessage(string message)
@@ -37,6 +40,7 @@ namespace SignalRBasic
                 {
                     return base.OnDisconnected(stopCalled);
                 }
+                nameToClientId.Remove(clientIdToName[Context.ConnectionId]);
                 clientIdToName.Remove(Context.ConnectionId);
                 Clients.Others.DeleteUser(name);
             }
@@ -51,7 +55,8 @@ namespace SignalRBasic
             rooms.Add(Context.ConnectionId, groupname);
             if (!string.IsNullOrEmpty(userId))
             {
-                
+                Groups.Add(nameToClientId[userId], groupname);
+                rooms.Add(nameToClientId[userId], groupname);
             }
 
             var hubcontext = GlobalHost.ConnectionManager.GetHubContext<RoomHub>();

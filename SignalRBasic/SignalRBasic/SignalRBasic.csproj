@@ -182,6 +182,9 @@
     <Content Include="fonts\iconFont.eot" />
     <Content Include="Room.html" />
     <Content Include="Scripts\chat.js" />
+    <None Include="Properties\PublishProfiles\ChatApp2 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\ChatApp2 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\Yi.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />

@@ -186,6 +186,7 @@
     <None Include="Properties\PublishProfiles\ChatApp2 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\Yi.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\hubs.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\jquery.signalR-2.1.2.js" />

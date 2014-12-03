@@ -17,24 +17,6 @@
 \\psf\home\Documents\Visual Studio 2013\Projects\SignalRBasic\SignalRBasic\obj\Debug\SignalRBasic.csprojResolveAssemblyReference.cache
 \\psf\home\Documents\Visual Studio 2013\Projects\SignalRBasic\SignalRBasic\obj\Debug\SignalRBasic.dll
 \\psf\home\Documents\Visual Studio 2013\Projects\SignalRBasic\SignalRBasic\obj\Debug\SignalRBasic.pdb
-C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\SignalRBasic.dll.config
-C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\SignalRBasic.dll
-C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\SignalRBasic.pdb
-C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\Microsoft.AspNet.SignalR.Core.dll
-C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
-C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\Microsoft.Owin.dll
-C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\Microsoft.Owin.Security.dll
-C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\Newtonsoft.Json.dll
-C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\Owin.dll
-C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\Microsoft.AspNet.SignalR.Core.xml
-C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
-C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\Microsoft.Owin.xml
-C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\Microsoft.Owin.Security.xml
-C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\Newtonsoft.Json.xml
-C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\obj\Debug\SignalRBasic.dll
-C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\obj\Debug\SignalRBasic.pdb
 Z:\Users\yili\LearningSignalR\LearningSignalR\SignalRBasic\SignalRBasic\bin\SignalRBasic.dll.config
 Z:\Users\yili\LearningSignalR\LearningSignalR\SignalRBasic\SignalRBasic\bin\SignalRBasic.dll
 Z:\Users\yili\LearningSignalR\LearningSignalR\SignalRBasic\SignalRBasic\bin\SignalRBasic.pdb
@@ -54,4 +36,3 @@ Z:\Users\yili\LearningSignalR\LearningSignalR\SignalRBasic\SignalRBasic\bin\Newt
 Z:\Users\yili\LearningSignalR\LearningSignalR\SignalRBasic\SignalRBasic\obj\Debug\SignalRBasic.csprojResolveAssemblyReference.cache
 Z:\Users\yili\LearningSignalR\LearningSignalR\SignalRBasic\SignalRBasic\obj\Debug\SignalRBasic.dll
 Z:\Users\yili\LearningSignalR\LearningSignalR\SignalRBasic\SignalRBasic\obj\Debug\SignalRBasic.pdb
-C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\obj\Debug\SignalRBasic.csprojResolveAssemblyReference.cache

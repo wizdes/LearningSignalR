@@ -184,6 +184,7 @@
     <Content Include="Scripts\chat.js" />
     <None Include="Properties\PublishProfiles\ChatApp2 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\ChatApp2 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\ChatApp2.pubxml" />
     <None Include="Properties\PublishProfiles\Yi.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\hubs.js" />

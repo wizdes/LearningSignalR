@@ -88,6 +88,7 @@
     <Content Include="fonts\iconFont.dev.svg" />
     <Content Include="fonts\iconFont.svg" />
     <Content Include="fonts\metroSysIcons.svg" />
+    <Content Include="GameDemo1.html" />
     <Content Include="js\metro.min.js" />
     <Content Include="js\metro\metro-accordion.js" />
     <Content Include="js\metro\metro-button-set.js" />

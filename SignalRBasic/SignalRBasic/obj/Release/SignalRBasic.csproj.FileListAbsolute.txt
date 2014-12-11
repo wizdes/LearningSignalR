@@ -34,3 +34,4 @@ C:\Users\yiil\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\Mic
 C:\Users\yiil\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\Newtonsoft.Json.xml
 C:\Users\yiil\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\obj\Release\SignalRBasic.dll
 C:\Users\yiil\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\obj\Release\SignalRBasic.pdb
+C:\Users\Yi\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\obj\Release\SignalRBasic.csprojResolveAssemblyReference.cache

@@ -1,4 +1,6 @@
-﻿var gameStage;
+﻿// global objects
+var gameStage;
+var loginContainer;
 
 window.addEventListener('resize', resize, false);
 
@@ -16,6 +18,8 @@ function tick(event) {
 function resize() {
     gameStage.canvas.width = window.innerWidth;
     gameStage.canvas.height = window.innerHeight;
+    container.x = window.innerWidth - 250;
+    container.y = 5;
 }
 
 function initPage() {
@@ -30,16 +34,15 @@ function initPage() {
     gameStage.canvas.height = window.innerHeight;
 
     container = new createjs.Container();
+    loginContainer = container;
     gameStage.addChild(container);
 
     var content = new createjs.DOMElement("LoginSection");
-    content.regX = 0;
-    content.regY = 135;
     content.visible = true;
 
-
-    container.addChild( content);
-    container.x = 0; container.y = 200;
+    container.addChild(content);
+    container.x = window.innerWidth - 250;
+    container.y = 5;
 
     update = true;
 

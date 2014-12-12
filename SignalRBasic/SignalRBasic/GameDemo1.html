@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Yi's Chat Program!</title>
+    <title>Euchre with Friends v1</title>
     <link rel="stylesheet" href="css/metro-bootstrap.css">
     <script src="Scripts/jquery-2.1.1.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
@@ -20,9 +20,12 @@
 <body onload="init()">
 <div id="canvas-container">
     <div id="LoginSection" style="visibility: hidden;">
-        <button id="btn" width="100" onclick=" alert('Button clicked.') ">Login</button>
+        <div class="metro">
+            <input type="text" id="nickname" name="firstname" />
+            <input type="button" id="AddName" value="Login" />
+        </div>
     </div>
-    <canvas id="testCanvas" width="1280" height="768">Your browser doesn't support canvas</canvas>
+    <canvas id="testCanvas" width="1" height="1">Your browser doesn't support canvas</canvas>
 </div>
 </body>
 </html>

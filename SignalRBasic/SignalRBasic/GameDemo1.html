@@ -13,6 +13,7 @@
     <link type="text/css" rel="stylesheet" media="all" href="Styles/canvas.css" />
     <script src="js/metro.min.js"></script>
     <script src="js/metro/metro-dropdown.js"></script>
+    <script src="js/metro/metro-scroll.js"></script>
     <script src="http://code.createjs.com/easeljs-0.7.1.min.js"></script>
     <script type="text/javascript">
     </script>
@@ -23,13 +24,32 @@
         <div class="metro">
             <input type="text" id="nickname" name="firstname" />
             <input type="button" id="AddName" value="Login" />
-        </div>
-        <div id="listInfo">
-            <h1>Online Users:</h1>
-            <div>
-                <nav class="vertical-menu" id="onlineUsers">
-                </nav>
+            <div id="listInfo">
+                    <div class="row">
+                        <div class="span3">
+                            <h4>Online Users</h4>
+                            <div class="scrollcontainer">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            </div>
+                        </div>
+                    </div>
             </div>
+            <script>
+                $(function () {
+                    $("#scrollbox1").scrollbar({
+                        height: 355,
+                        axis: 'y'
+                    });
+                    $("#scrollbox2").scrollbar({
+                        axis: 'x',
+                        height: 355
+                    });
+                    $("#scrollbox3").scrollbar({
+                        height: 355
+                    });
+                });
+            </script>
         </div>
     </div>
     <canvas id="testCanvas" width="1" height="1">Your browser doesn't support canvas</canvas>

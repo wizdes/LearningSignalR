@@ -22,3 +22,9 @@ function addToParagraph(value, index, ar) {
     $("#onlineUsers").append("<li class=\"" + value + "\"><a href=\"#\">" + value + "</a></li>");
     $("." + value).click(value, handler);
 };
+
+function handler() {
+    // create a function here to "give an option to join"
+    // maybe create a balloon with a button to create a game
+}
+

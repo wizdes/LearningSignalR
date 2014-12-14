@@ -189,6 +189,7 @@
     <None Include="Properties\PublishProfiles\ChatApp2.pubxml" />
     <None Include="Properties\PublishProfiles\Yi.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\ClientOperations.js" />
     <Content Include="Scripts\CreatePage.js" />
     <Content Include="Scripts\hubs.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
@@ -196,13 +197,16 @@
     <Content Include="Scripts\jquery.signalR-2.1.2.js" />
     <Content Include="Scripts\jquery.signalR-2.1.2.min.js" />
     <Content Include="Scripts\Room.js" />
+    <Content Include="Scripts\ServerInterface.js" />
     <Content Include="Scripts\Tracking.js" />
     <Content Include="Styles\canvas.css" />
     <Content Include="Styles\chat.css" />
     <Content Include="Styles\screen.css" />
     <Content Include="Styles\screen_ie.css" />
     <Content Include="tracking.html" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Scripts\jquery-2.1.1.min.map" />
   </ItemGroup>
   <ItemGroup>

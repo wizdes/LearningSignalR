@@ -5,6 +5,7 @@ var loginContainer;
 window.addEventListener('resize', resize, false);
 
 function init() {
+    $("#CreateGame").hide();
     initPage();
 }
 

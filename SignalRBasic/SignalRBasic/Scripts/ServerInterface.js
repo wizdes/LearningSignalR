@@ -12,13 +12,6 @@ $(function () {
     });
     hub = $.connection.roomHub;
 
-    function handler() {
-        var val = $(this);
-        var valName = val[0].innerText;
-        hub.server.createChat(valName);
-        chatWith(valName);
-    }
-
     hub.client.broadcastMessage = function (message) {
         if (message.indexOf(":::NEW USER:::!") != -1) {
             var res = message.split(":::!");
@@ -54,11 +47,12 @@ $(function () {
     };
 
     $("#AddName").click(function () {
-        var value2 = $("#nickname");
+        var value2 = $("#LoggedInName");
         addUser(value2.val());
         $(this).prop("disabled", true);
         $(this).val("Logged in as " + value2.val());
-        $("#nickname").hide();
+        $("#LoggedInName").hide();
+        $("#CreateGame").show();
     });
 });
 

@@ -13,3 +13,7 @@
 
     gameStage.update();
 }
+
+function cleanupLobbyPage() {
+    
+}

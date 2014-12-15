@@ -1,4 +1,4 @@
-﻿$(function () {
+﻿$(function() {
     // these are handlers that are set up when the page initializes
     $("#StartChat").click(function() {
         hub.server.createChat("");
@@ -18,6 +18,11 @@
     $("#CreateGame").click(function() {
         cleanMainPage();
         initLobbyPage();
+    });
+
+    $("#PlayGame").click(function() {
+        cleanupLobbyPage();
+        initGamePage();
     });
 
     $("#LeaveChat").click(function() {

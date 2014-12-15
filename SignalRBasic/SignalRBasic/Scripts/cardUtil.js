@@ -1,10 +1,4 @@
-﻿/**
- * Created by Yi on 10/31/2014.
- */
-/**
- * @return {string}
- */
-function GetCardName(i) {
+﻿function GetCardName(i) {
     cardSuitVal = Math.floor(i / 13);
     cardValueVal = i % 13 + 1;
 

@@ -17,6 +17,7 @@
 
     $("#CreateGame").click(function() {
         cleanMainPage();
+        initLobbyPage();
     });
 
     $("#LeaveChat").click(function() {

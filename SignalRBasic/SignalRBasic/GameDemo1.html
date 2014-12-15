@@ -7,55 +7,57 @@
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     <script src="Scripts/jquery.signalR-2.1.2.min.js"></script>
     <script src="Scripts/hubs.js"></script>
+    <script src="Scripts/GlobalConstants.js"></script>
     <script src="Scripts/CreatePage.js"></script>
     <script src="Scripts/ClientOperations.js"></script>
     <script src="Scripts/ServerInterface.js"></script>
-    <link type="text/css" rel="stylesheet" media="all" href="Styles/chat.css" />
+    <script src="Scripts/CreateLobby.js"></script>
+    <link type="text/css" rel="stylesheet" media="all" href="Styles/chat.css"/>
     <link type="text/css" rel="stylesheet" media="all" href="Styles/screen.css"/>
-    <link type="text/css" rel="stylesheet" media="all" href="Styles/canvas.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="Styles/canvas.css"/>
     <script src="js/metro.min.js"></script>
     <script src="js/metro/metro-dropdown.js"></script>
     <script src="js/metro/metro-scroll.js"></script>
     <script src="http://code.createjs.com/easeljs-0.7.1.min.js"></script>
     <script type="text/javascript">
+    
     </script>
 </head>
-<body onload="init()">
+<body onload=" init() ">
 <div id="canvas-container">
-    <div id="LoginSection" style="visibility: hidden;">
-        <div class="metro">
-            <input type="text" id="LoggedInName" name="firstname" />
-            <input type="button" id="AddName" value="Login" />
+    <div class="metro">
+        <div id="SiteTitle" style="visibility: hidden;">
+            <h1 id="TitleText">Euchre With Friends</h1>
+        </div>
+
+        <div id="LoginSection" style="visibility: hidden;">
+            <input type="text" id="LoggedInName" name="firstname"/>
+            <input type="button" id="AddName" value="Login"/>
             <input type="button" id="CreateGame" value="Create Game"/>
             <div id="listInfo">
-                    <div class="row">
-                        <div class="span3">
-                            <h4>Online Users</h4>
-                            <div class="scrollcontainer" style="background: #000000; background: rgba(0, 0, 0, 0.1);">
-                                <nav class="vertical-menu" id="onlineUsers">
-                                </nav>
-                            </div>
+                <div class="row">
+                    <div class="span3">
+                        <h4>Online Users</h4>
+                        <div class="scrollcontainer" id="scrollbox1">
+                            <nav class="vertical-menu" id="onlineUsers">
+                            </nav>
                         </div>
                     </div>
+                </div>
             </div>
-            <script>
-                $(function () {
-                    $("#scrollbox1").scrollbar({
-                        height: 355,
-                        axis: 'y'
-                    });
-                    $("#scrollbox2").scrollbar({
-                        axis: 'x',
-                        height: 355
-                    });
-                    $("#scrollbox3").scrollbar({
-                        height: 355
-                    });
-                });
-            </script>
         </div>
     </div>
-    <canvas id="testCanvas" width="1" height="1">Your browser doesn't support canvas</canvas>
+
+    <div id="GroupLobbyInfo" style="display: none;">
+        <div class="scrollcontainer" id="scrollbox1">
+            <nav class="vertical-menu" id="playersInGroup">
+            </nav>
+        </div>
+        <input type="button" id="Play" value="Play!" />
+    </div>
+    <canvas id="testCanvas" width="1" height="1">Your browser doesn't support Easel.JS. Get a compliant browser to access this site.</canvas>
 </div>
 </body>
 </html>
+
+<!--Copyright © 2014-2016 by Yi Li. All rights reserved.-->

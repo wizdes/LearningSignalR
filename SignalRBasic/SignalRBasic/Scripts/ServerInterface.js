@@ -17,7 +17,7 @@ $(function () {
             var res = message.split(":::!");
             var newUserName = res[1];
             $("#onlineUsers").append("<li class=\"" + newUserName + "\"><a href=\"#\">" + newUserName + "</a></li>");
-            $("." + newUserName).click(handler);
+            $("." + newUserName).click(clickUserHandler);
             return;
         }
         if (message.indexOf("Joined group") == -1) {

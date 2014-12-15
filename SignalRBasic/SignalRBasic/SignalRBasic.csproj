@@ -190,7 +190,9 @@
     <None Include="Properties\PublishProfiles\Yi.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\ClientOperations.js" />
+    <Content Include="Scripts\CreateLobby.js" />
     <Content Include="Scripts\CreatePage.js" />
+    <Content Include="Scripts\GlobalConstants.js" />
     <Content Include="Scripts\hubs.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />

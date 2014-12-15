@@ -1,16 +1,11 @@
-.chatbox {
-	position: fixed;
-	position:expression("absolute");
-	width: 225px;
-	display:none;
-}
-
 .scrollcontainer {
       width: 200px;
       height: 300px;
       background-color: #DCDCDC;
       overflow: scroll; /* showing scrollbars */   
       overflow-x: hidden; 
+      background: #000000;
+      background: rgba(0, 0, 0, 0.1);
 }
 
 .chatboxhead {
@@ -97,4 +92,11 @@
 
 .chatboxtitle {
 	float: left;
+}
+
+.chatbox {
+	position: fixed;
+	position:expression("absolute");
+	width: 225px;
+	display:none;
 }

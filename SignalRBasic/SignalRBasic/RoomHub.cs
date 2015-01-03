@@ -61,6 +61,7 @@ namespace SignalRBasic
 
             var hubcontext = GlobalHost.ConnectionManager.GetHubContext<RoomHub>();
             hubcontext.Clients.Group(groupname).BroadcastMessage("Joined group: " + groupname + ".");
+            Clients.Others.AddGameToClients(userId + " - " + groupname);
             return groupname;
         }
 

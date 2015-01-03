@@ -15,7 +15,8 @@
         chatWith("chatbox");
     });
 
-    $("#CreateGame").click(function() {
+    $("#CreateGame").click(function () {
+        hub.server.createChat("");
         cleanMainPage();
         initLobbyPage();
     });

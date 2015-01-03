@@ -32,6 +32,14 @@ $(function () {
         }
     };
 
+    hub.client.addGameToClients = function (name) {
+        $('#onlineGames').append("<li class=\"" + name + "\"><a href=\"#\">" + name + "</a></li>");
+    }
+
+    hub.client.removeGameToClients = function (name) {
+        $("." + name).remove();
+    }
+
     function addUser(name) {
         var hub = $.connection.roomHub;
         hub.server.setName(hub.connection.id, name);

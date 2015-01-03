@@ -1,5 +1,4 @@
 ﻿var img;
-var stage;
 var imgArray;
 
 function initGamePage() {
@@ -7,17 +6,15 @@ function initGamePage() {
         document.getElementById("header").style.display = "none";
     }
 
-    var canvas = document.getElementById("testCanvas");
-    stage = new createjs.Stage(canvas);
-
-
     imgArray = [];
 
+    $("#TitleText").html("Euchre With Friends - Game");
+
     // enable touch interactions if supported on the current device:
-    createjs.Touch.enable(stage);
+    createjs.Touch.enable(gameStage);
 
     // enabled mouse over / out events
-    stage.enableMouseOver(10);
+    gameStage.enableMouseOver(10);
     //stage.mouseMoveOutside = true; // keep tracking the mouse even when it leaves the canvas
 
     for (i = 0; i < 52; i++) {
@@ -30,8 +27,8 @@ function initGamePage() {
 
     for (i = 0; i < 52; i++) {
         bmp = new createjs.Bitmap(imgArray[i]);
-        bmp.x = 5 + canvas.width / 13 * (i % 13);
-        bmp.y = 5 + canvas.height / 5 * Math.floor(i / 13);
+        bmp.x = 5 + gameStage.canvas.width / 13 * (i % 13);
+        bmp.y = 5 + gameStage.canvas.height / 5 * Math.floor(i / 13);
         bmp.scaleX = bmp.scaleY = 0.18;
 
         // using "on" binds the listener to the scope of the currentTarget by default
@@ -44,7 +41,7 @@ function initGamePage() {
             update = true;
         });
 
-        stage.addChild(bmp);
+        gameStage.addChild(bmp);
     }
 
     update = true;

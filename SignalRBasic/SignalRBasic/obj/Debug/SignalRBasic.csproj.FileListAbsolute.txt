@@ -73,3 +73,4 @@ C:\Users\Bing\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\Mic
 C:\Users\Bing\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\bin\Newtonsoft.Json.xml
 C:\Users\Bing\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\obj\Debug\SignalRBasic.dll
 C:\Users\Bing\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\obj\Debug\SignalRBasic.pdb
+C:\Users\Bing\Documents\GitHub\LearningSignalR\SignalRBasic\SignalRBasic\obj\Debug\SignalRBasic.csprojResolveAssemblyReference.cache

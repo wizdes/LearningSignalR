@@ -50,6 +50,7 @@ namespace SignalRBasic
 
         public string CreateChat(string userId)
         {
+            // the optional userId parameter denotes the 'chat with' user
             string groupname = Guid.NewGuid().ToString();
             Groups.Add(Context.ConnectionId, groupname);
             rooms.Add(Context.ConnectionId, groupname);
@@ -61,7 +62,7 @@ namespace SignalRBasic
 
             var hubcontext = GlobalHost.ConnectionManager.GetHubContext<RoomHub>();
             hubcontext.Clients.Group(groupname).BroadcastMessage("Joined group: " + groupname + ".");
-            Clients.Others.AddGameToClients(userId + " - " + groupname);
+            Clients.Others.AddGameToClients(groupname);
             return groupname;
         }
 
@@ -93,7 +94,31 @@ namespace SignalRBasic
 
         public IList<string> ListPeopleInGroup()
         {
-            return null;
+            //lists the people in my group
+            string groupName = rooms[Context.ConnectionId];
+            List<string> usersInGroup = new List<string>();
+            foreach (string userConnectionId in rooms.Keys.ToList())
+            {
+                if (rooms[userConnectionId] == groupName)
+                {
+                    usersInGroup.Add(userConnectionId);
+                }
+            }
+
+            IList<string> userNamesInGroup = new List<string>();
+            foreach (string user in usersInGroup)
+            {
+                userNamesInGroup.Add(clientIdToName[user]);
+    
+            }
+
+            return userNamesInGroup;
+        }
+
+        public void BroadcastAddUserToGroup(string username)
+        {
+            // when a user joins a group, let the people in the group know he joined
+            return;
         }
 
         public Task BroadcastAddUser(string username)

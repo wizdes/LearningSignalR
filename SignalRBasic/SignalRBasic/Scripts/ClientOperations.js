@@ -17,8 +17,7 @@
 
     $("#CreateGame").click(function () {
         hub.server.createChat("");
-        cleanMainPage();
-        initLobbyPage();
+        setupLobby();
     });
 
     $("#PlayGame").click(function() {
@@ -37,6 +36,20 @@
     });
 });
 
+function listUsersForMyGroup() {
+    hub.server.listPeopleInGroup().done(function (result) {
+        result.forEach(function (entry) {
+            $('#playersInGroup').append("<li>" + entry + "</li>");
+        });
+    });
+}
+
+function setupLobby() {
+    cleanMainPage();
+    initLobbyPage();
+    var userList = listUsersForMyGroup();
+}
+
 function addToParagraph(value, index, ar) {
     $("#onlineUsers").append("<li class=\"" + value + "\"><a href=\"#\">" + value + "</a></li>");
     $("." + value).click(value, clickUserHandler);
@@ -45,5 +58,13 @@ function addToParagraph(value, index, ar) {
 function clickUserHandler() {
     // create a function here to "give an option to join"
     // maybe create a balloon with a button to create a game
+}
+
+function clickGroupHandler() {
+    // join a group
+    var val = $(this);
+    var valName = val[0].innerText;
+    hub.server.joinRoom(valName);
+    setupLobby();
 }
 

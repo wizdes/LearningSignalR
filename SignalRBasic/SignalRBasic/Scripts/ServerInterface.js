@@ -34,6 +34,7 @@ $(function () {
 
     hub.client.addGameToClients = function (name) {
         $('#onlineGames').append("<li class=\"" + name + "\"><a href=\"#\">" + name + "</a></li>");
+        $("." + name).click(clickGroupHandler);
     }
 
     hub.client.removeGameToClients = function (name) {

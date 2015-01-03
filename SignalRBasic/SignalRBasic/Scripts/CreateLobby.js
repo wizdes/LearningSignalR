@@ -1,6 +1,7 @@
 ﻿var groupLobbyContainer;
 
 function initLobbyPage() {
+    //graphics part
     groupLobbyContainer = new createjs.Container();
     gameStage.addChild(groupLobbyContainer);
 
@@ -16,6 +17,10 @@ function initLobbyPage() {
     $("#GroupLobbyInfo").show();
 
     gameStage.update();
+
+    //server side part
+    // call a 'get users in group' from server
+    // populate the GroupLobbyContent
 }
 
 function cleanupLobbyPage() {

@@ -63,7 +63,7 @@ function clickUserHandler() {
 function clickGroupHandler() {
     // join a group
     var val = $(this);
-    var valName = val[0].innerText;
+    var valName = val[0].innerText.trim();
     hub.server.joinRoom(valName);
     setupLobby();
 }

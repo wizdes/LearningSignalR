@@ -96,23 +96,10 @@ namespace SignalRBasic
         {
             //lists the people in my group
             string groupName = rooms[Context.ConnectionId];
-            List<string> usersInGroup = new List<string>();
-            foreach (string userConnectionId in rooms.Keys.ToList())
-            {
-                if (rooms[userConnectionId] == groupName)
-                {
-                    usersInGroup.Add(userConnectionId);
-                }
-            }
+            List<string> usersInGroup =
+                rooms.Keys.ToList().Where(userConnectionId => rooms[userConnectionId] == groupName).ToList();
 
-            IList<string> userNamesInGroup = new List<string>();
-            foreach (string user in usersInGroup)
-            {
-                userNamesInGroup.Add(clientIdToName[user]);
-    
-            }
-
-            return userNamesInGroup;
+            return usersInGroup.Select(user => clientIdToName[user]).ToList();
         }
 
         public void BroadcastAddUserToGroup(string username)
@@ -124,6 +111,17 @@ namespace SignalRBasic
         public Task BroadcastAddUser(string username)
         {
             return Clients.Others.AddUser(username);
+        }
+
+        public void SendGameMessage(string message)
+        {
+            if (message.Equals("Play"))
+            {
+                string groupName = rooms[Context.ConnectionId];
+                var hubcontext = GlobalHost.ConnectionManager.GetHubContext<RoomHub>();
+                hubcontext.Clients.Group(groupName).initAddCards(null);
+            }
+            //let's make this comma delimited messages as well
         }
     }
 }

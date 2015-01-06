@@ -20,9 +20,8 @@
         setupLobby();
     });
 
-    $("#PlayGame").click(function() {
-        cleanupLobbyPage();
-        initGamePage();
+    $("#PlayGame").click(function () {
+        hub.server.sendGameMessage("Play");
     });
 
     $("#LeaveChat").click(function() {

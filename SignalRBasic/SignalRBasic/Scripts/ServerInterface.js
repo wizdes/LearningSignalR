@@ -41,6 +41,19 @@ $(function () {
         $("." + name).remove();
     }
 
+    hub.client.deleteUser = function (name) {
+        $("." + name).remove();
+    };
+
+    hub.client.initAddCards = function(cardsAdded) {
+        cleanupLobbyPage();
+        initGamePage();
+    };
+
+    hub.client.cardAction = function(cardActionString) {
+
+    };
+
     function addUser(name) {
         var hub = $.connection.roomHub;
         hub.server.setName(hub.connection.id, name);
@@ -49,10 +62,6 @@ $(function () {
 
     function listUsers() {
         hub.server.listUsers().done(function (result) { result.forEach(addToParagraph); });
-    };
-
-    hub.client.deleteUser = function (name) {
-        $("." + name).remove();
     };
 
     $("#AddName").click(function () {

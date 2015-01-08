@@ -45,7 +45,8 @@ $(function () {
         $("." + name).remove();
     };
 
-    hub.client.initAddCards = function(cardsAdded) {
+    hub.client.initAddCards = function (cardsAdded) {
+        var jsonObject = JSON.parse(cardsAdded);
         cleanupLobbyPage();
         initGamePage();
     };

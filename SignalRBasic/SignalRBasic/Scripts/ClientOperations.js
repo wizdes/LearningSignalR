@@ -63,7 +63,9 @@ function clickGroupHandler() {
     // join a group
     var val = $(this);
     var valName = val[0].innerText.trim();
-    hub.server.joinRoom(valName);
-    setupLobby();
+    hub.server.joinRoom(valName).done(function(result) {
+        playerNum = result;
+        setupLobby();
+    });
 }
 

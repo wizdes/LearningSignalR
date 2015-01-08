@@ -4,3 +4,4 @@ var loginContainer;
 var content;
 var titleContainer;
 var titleContent;
+var playerNum;

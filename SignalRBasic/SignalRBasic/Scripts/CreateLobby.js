@@ -5,7 +5,7 @@ function initLobbyPage() {
     groupLobbyContainer = new createjs.Container();
     gameStage.addChild(groupLobbyContainer);
 
-    $("#TitleText").html("Euchre With Friends - Lobby");
+    $("#TitleText").html("Euchre With Friends - Lobby" + " playernum: " + playerNum);
 
     groupLobbyContent = new createjs.DOMElement("GroupLobbyInfo");
     groupLobbyContent.visible = true;

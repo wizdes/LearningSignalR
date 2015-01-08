@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.SignalR;
+using Newtonsoft.Json;
 
 namespace SignalRBasic
 {
@@ -12,7 +13,10 @@ namespace SignalRBasic
 
         public static Dictionary<string, string> clientIdToName = new Dictionary<string, string>();
 
-        public static Dictionary<string, string> nameToClientId = new Dictionary<string, string>(); 
+        public static Dictionary<string, string> nameToClientId = new Dictionary<string, string>();
+
+        public static Dictionary<string, EuchreGameState> groupnameToEuchreGame =
+            new Dictionary<string, EuchreGameState>(); 
 
         public void SetName(string connectionID, string name)
         {
@@ -66,12 +70,13 @@ namespace SignalRBasic
             return groupname;
         }
 
-        public void JoinRoom(string groupname)
+        public int JoinRoom(string groupname)
         {
             Groups.Add(Context.ConnectionId, groupname);
             rooms.Add(Context.ConnectionId, groupname);
             var hubcontext = GlobalHost.ConnectionManager.GetHubContext<RoomHub>();
             hubcontext.Clients.Group(groupname).BroadcastMessage("Joined group: " + groupname + ".");
+            return ListPeopleInGroup().Count;
         }
 
         public void LeaveRoom(string groupname)
@@ -119,7 +124,11 @@ namespace SignalRBasic
             {
                 string groupName = rooms[Context.ConnectionId];
                 var hubcontext = GlobalHost.ConnectionManager.GetHubContext<RoomHub>();
-                hubcontext.Clients.Group(groupName).initAddCards(null);
+                var euchreGameState = new EuchreGameState();
+                groupnameToEuchreGame.Add(groupName, euchreGameState);
+                string jsonObject = JsonConvert.SerializeObject(euchreGameState);
+
+                hubcontext.Clients.Group(groupName).initAddCards(jsonObject);
             }
             //let's make this comma delimited messages as well
         }

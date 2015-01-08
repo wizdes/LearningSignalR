@@ -12,6 +12,7 @@
     $("#JoinChat").click(function() {
         var value2 = $("#chatName").val();
         hub.server.joinRoom(value2);
+        hub.server.broadcastAddUserToGroup(value2);
         chatWith("chatbox");
     });
 
@@ -67,6 +68,7 @@ function clickGroupHandler() {
     hub.server.joinRoom(valName).done(function(result) {
         playerNum = result;
         setupLobby();
+        hub.server.broadcastAddUserToGroup($("#LoggedInName").val());
     });
 }
 

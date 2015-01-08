@@ -55,6 +55,10 @@ $(function () {
 
     };
 
+    hub.client.addUserToLobby = function(value) {
+        $('#playersInGroup').append("<li>" + value + "</li>");
+    }
+
     function addUser(name) {
         var hub = $.connection.roomHub;
         hub.server.setName(hub.connection.id, name);
@@ -68,6 +72,7 @@ $(function () {
     $("#AddName").click(function () {
         var value2 = $("#LoggedInName");
         addUser(value2.val());
+        playerName = value2.val();
         $(this).prop("disabled", true);
         $(this).val("Logged in as " + value2.val());
         $("#LoggedInName").hide();

@@ -5,3 +5,4 @@ var content;
 var titleContainer;
 var titleContent;
 var playerNum;
+var playerName;

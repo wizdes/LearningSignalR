@@ -109,8 +109,10 @@ namespace SignalRBasic
 
         public void BroadcastAddUserToGroup(string username)
         {
+            string groupName = rooms[Context.ConnectionId];
             // when a user joins a group, let the people in the group know he joined
-            return;
+            var hubcontext = GlobalHost.ConnectionManager.GetHubContext<RoomHub>();
+            Clients.OthersInGroup(groupName).addUserToLobby(username);
         }
 
         public Task BroadcastAddUser(string username)

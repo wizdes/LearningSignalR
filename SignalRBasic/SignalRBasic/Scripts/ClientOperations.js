@@ -17,6 +17,7 @@
 
     $("#CreateGame").click(function () {
         hub.server.createChat("");
+        playerNum = 1;
         setupLobby();
     });
 

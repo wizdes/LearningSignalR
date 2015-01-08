@@ -31,6 +31,17 @@ function initGamePage(cardList) {
         bmp.y = 5 + gameStage.canvas.height / 5 * Math.floor(i / 13);
         bmp.scaleX = bmp.scaleY = 0.18;
 
+        var shouldShow = false;
+        for (j = 0; j < cardList.length; j++) {
+            if (cardList[j].num == i) {
+                shouldShow = true;
+            }
+        }
+
+        if (!shouldShow) {
+            bmp.visible = false;
+        }
+
         // using "on" binds the listener to the scope of the currentTarget by default
         // in this case that means it executes in the scope of the button.
         bmp.on("mousedown", function (evt) {

@@ -60,7 +60,6 @@ namespace SignalRBasic
 
         public void playCard(int playerNum, int cardNum)
         {
-            
         }
 
         //utility functions

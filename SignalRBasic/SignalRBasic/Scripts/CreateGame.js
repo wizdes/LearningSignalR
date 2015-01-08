@@ -1,7 +1,7 @@
 ﻿var img;
 var imgArray;
 
-function initGamePage() {
+function initGamePage(cardList) {
     if (window.top != window) {
         document.getElementById("header").style.display = "none";
     }

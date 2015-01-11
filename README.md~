@@ -1,7 +1,7 @@
 roadmap:
 
 BUG:
-1) load all games when loading joining a global session <fixed>
+1) load all games when loading joining a global session
 
 1) when getting the cards, list them correctly 
 2) your cards are at the bottom, then back of the cards for all the others

@@ -48,7 +48,7 @@ function listUsersForMyGroup() {
 function setupLobby() {
     cleanMainPage();
     initLobbyPage();
-    var userList = listUsersForMyGroup();
+    listUsersForMyGroup();
 }
 
 function addToParagraph(value, index, ar) {

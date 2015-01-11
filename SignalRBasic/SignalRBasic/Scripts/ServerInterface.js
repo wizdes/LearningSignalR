@@ -8,7 +8,7 @@ var openedConversations = [];
 $(function () {
     $.connection.hub.start().done(function () {
         hub = $.connection.roomHub;
-        listUsers();
+        listUsersAndGames();
     });
     hub = $.connection.roomHub;
 
@@ -33,6 +33,11 @@ $(function () {
     };
 
     hub.client.addGameToClients = function (name) {
+        $('#onlineGames').append("<li class=\"" + name + "\"><a href=\"#\">" + name + "</a></li>");
+        $("." + name).click(clickGroupHandler);
+    }
+
+    function addToGameParagraph(name) {
         $('#onlineGames').append("<li class=\"" + name + "\"><a href=\"#\">" + name + "</a></li>");
         $("." + name).click(clickGroupHandler);
     }
@@ -65,8 +70,9 @@ $(function () {
         username = name;
     };
 
-    function listUsers() {
+    function listUsersAndGames() {
         hub.server.listUsers().done(function (result) { result.forEach(addToParagraph); });
+        hub.server.listGroup().done(function (result) { result.forEach(addToGameParagraph); });
     };
 
     $("#AddName").click(function () {
@@ -79,7 +85,6 @@ $(function () {
         $("#CreateGame").show();
     });
 });
-
 
 function chatWith(chatuser) {
     openedConversations.push(chatuser);

@@ -15,8 +15,10 @@ namespace SignalRBasic
 
         public static Dictionary<string, string> nameToClientId = new Dictionary<string, string>();
 
-        public static Dictionary<string, EuchreGameState> groupnameToEuchreGame =
-            new Dictionary<string, EuchreGameState>(); 
+        public static Dictionary<string, EuchreGameState> groupNameToEuchreGame =
+            new Dictionary<string, EuchreGameState>();
+
+        public static HashSet<string> groupNames = new HashSet<string>(); 
 
         public void SetName(string connectionID, string name)
         {
@@ -67,6 +69,7 @@ namespace SignalRBasic
             var hubcontext = GlobalHost.ConnectionManager.GetHubContext<RoomHub>();
             hubcontext.Clients.Group(groupname).BroadcastMessage("Joined group: " + groupname + ".");
             Clients.Others.AddGameToClients(groupname);
+            groupNames.Add(groupname);
             return groupname;
         }
 
@@ -94,7 +97,7 @@ namespace SignalRBasic
 
         public IList<string> ListGroup()
         {
-            return null;
+            return groupNames.ToList();
         }
 
         public IList<string> ListPeopleInGroup()
@@ -127,8 +130,10 @@ namespace SignalRBasic
                 string groupName = rooms[Context.ConnectionId];
                 var hubcontext = GlobalHost.ConnectionManager.GetHubContext<RoomHub>();
                 var euchreGameState = new EuchreGameState();
-                groupnameToEuchreGame.Add(groupName, euchreGameState);
+                groupNameToEuchreGame.Add(groupName, euchreGameState);
                 string jsonObject = JsonConvert.SerializeObject(euchreGameState);
+
+                groupNames.Remove(groupName);
 
                 hubcontext.Clients.Group(groupName).initAddCards(jsonObject);
             }

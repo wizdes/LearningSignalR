@@ -25,12 +25,9 @@ function initGamePage(cardList) {
         imgArray[i] = imgLoader;
     }
 
-    for (i = 0; i < 52; i++) {
-        bmp = new createjs.Bitmap(imgArray[i]);
-        bmp.x = 5 + gameStage.canvas.width / 13 * (i % 13);
-        bmp.y = 5 + gameStage.canvas.height / 5 * Math.floor(i / 13);
-        bmp.scaleX = bmp.scaleY = 0.18;
+    handiter = 0;
 
+    for (i = 0; i < 52; i++) {
         var shouldShow = false;
         for (j = 0; j < cardList.length; j++) {
             if (cardList[j].num == i) {
@@ -39,15 +36,22 @@ function initGamePage(cardList) {
         }
 
         if (!shouldShow) {
-            bmp.visible = false;
+            continue;
         }
+
+        bmp = new createjs.Bitmap(imgArray[i]);
+        bmp.x = 5 + gameStage.canvas.width / 13 * (handiter % 13);
+        bmp.y = 5 + gameStage.canvas.height / 10 * 9;
+        bmp.scaleX = bmp.scaleY = 0.18;
+
+        handiter = handiter + 1;
 
         // using "on" binds the listener to the scope of the currentTarget by default
         // in this case that means it executes in the scope of the button.
         bmp.on("mousedown", function (evt) {
             this.parent.addChild(this);
-            this.x = 5;
-            this.y = 620;
+            this.x = gameStage.canvas.width/2;
+            this.y = gameStage.canvas.height/2;
             this.visible = true;
             update = true;
         });

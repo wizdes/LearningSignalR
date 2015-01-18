@@ -37,6 +37,10 @@
     });
 });
 
+function sendCard(cardnum) {
+    hub.server.sendGameMessage("Card:" + playerNum + ":" + cardnum);
+}
+
 function listUsersForMyGroup() {
     hub.server.listPeopleInGroup().done(function (result) {
         result.forEach(function (entry) {

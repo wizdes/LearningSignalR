@@ -33,6 +33,8 @@ function setupOtherUsers() {
     }
 }
 
+indexToBMP = [];
+
 function initGamePage(cardList) {
     if (window.top != window) {
         document.getElementById("header").style.display = "none";
@@ -90,7 +92,10 @@ function initGamePage(cardList) {
             this.y = gameStage.canvas.height/2;
             this.visible = true;
             update = true;
+            sendCard(indexToBMP.indexOf(this));
         });
+
+        indexToBMP[i] = bmp;
 
         gameStage.addChild(bmp);
     }

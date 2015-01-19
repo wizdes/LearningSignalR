@@ -56,6 +56,10 @@ $(function () {
         initGamePage(jsonObject.playerCards[playerNum - 1]);
     };
 
+    hub.client.playCard = function(playerNum, cardNum) {
+        playCard(playerNum, playerCard);
+    };
+
     hub.client.cardAction = function(cardActionString) {
 
     };

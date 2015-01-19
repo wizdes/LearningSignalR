@@ -137,6 +137,19 @@ namespace SignalRBasic
 
                 hubcontext.Clients.Group(groupName).initAddCards(jsonObject);
             }
+            else if (message.Contains("Card"))
+            {
+                int playerNum = Convert.ToInt32(message.Split(':')[1]);
+                int cardNum = Convert.ToInt32(message.Split(':')[2]);
+
+                // find the group
+                string groupName = rooms[Context.ConnectionId];
+                var hubcontext = GlobalHost.ConnectionManager.GetHubContext<RoomHub>();
+
+                // send the message to the group
+                hubcontext.Clients.Group(groupName).playCard(playerNum, cardNum);
+                //
+            }
             //let's make this comma delimited messages as well
         }
     }

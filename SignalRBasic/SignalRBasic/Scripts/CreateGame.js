@@ -35,6 +35,10 @@ function setupOtherUsers() {
 
 indexToBMP = [];
 
+function playCard(playerNum, playerCard) {
+    
+}
+
 function initGamePage(cardList) {
     if (window.top != window) {
         document.getElementById("header").style.display = "none";

@@ -57,7 +57,7 @@ $(function () {
     };
 
     hub.client.playCard = function(playerNum, cardNum) {
-        playCard(playerNum, playerCard);
+        playCard(playerNum, cardNum);
     };
 
     hub.client.cardAction = function(cardActionString) {

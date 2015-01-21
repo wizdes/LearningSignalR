@@ -63,8 +63,12 @@ function playCard(otherPlayerNum, playerCard) {
 
     // place that card in the middle
     indexToBMP[playerCard].visible = true;
-    indexToBMP[playerCard].x = gameStage.canvas.width / 2 + (diff % 2) * 100;
-    indexToBMP[playerCard].y = gameStage.canvas.height / 2 - (diff % 2) * 130;
+    var val = -1;
+    if (diff >= 2) {
+        val = 1;
+    }
+    indexToBMP[playerCard].x = gameStage.canvas.width / 2 + (diff % 2) * 100 * val;
+    indexToBMP[playerCard].y = gameStage.canvas.height / 2 - ((diff + 1) % 2) * 130 * val;
 
     gameStage.addChild(indexToBMP[playerCard]);
 

@@ -7,12 +7,12 @@ roadmap:
   1
 
 3) clicking on a card brings it to the center <fixed>
-3.5) clicking on a card brings it to the center *for everyone*
-a) when clicking on a card, move it up
-b) server calls all client js to remove the card
-c) client removes the card and puts it in the middle
-4) logic needs to be added: only click on your own cards
-5) logic for the first phase (pick up/choose trump)
+3.5) clicking on a card brings it to the center *for everyone* <Fixed>
+a) when clicking on a card, move it up <fixed>
+b) server calls all client js to remove the card <fixed>
+c) client removes the card and puts it in the middle <fixed>
+4) logic needs to be added: only click on your own cards <fixed>
+5) logic for the first phase (pick up/choose trump) 
 6) logic needs to be added: only click on your own cards on your turn
 7) add logic for points, multiple rounds
 8) add animation

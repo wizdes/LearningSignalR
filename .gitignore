@@ -62,3 +62,7 @@ Temporary Items
 *.suo
 
 *.suo
+*.user
+*.pubxml
+*.pubxml
+*.pubxml

@@ -87,6 +87,12 @@
                 return proxies['roomHub'].invoke.apply(proxies['roomHub'], $.merge(["BroadcastAddUser"], $.makeArray(arguments)));
              },
 
+            broadcastAddUserToGroup: function (username) {
+            /// <summary>Calls the BroadcastAddUserToGroup method on the server-side RoomHub hub.&#10;Returns a jQuery.Deferred() promise.</summary>
+            /// <param name=\"username\" type=\"String\">Server side type is System.String</param>
+                return proxies['roomHub'].invoke.apply(proxies['roomHub'], $.merge(["BroadcastAddUserToGroup"], $.makeArray(arguments)));
+             },
+
             createChat: function (userId) {
             /// <summary>Calls the CreateChat method on the server-side RoomHub hub.&#10;Returns a jQuery.Deferred() promise.</summary>
             /// <param name=\"userId\" type=\"String\">Server side type is System.String</param>
@@ -118,6 +124,12 @@
             listUsers: function () {
             /// <summary>Calls the ListUsers method on the server-side RoomHub hub.&#10;Returns a jQuery.Deferred() promise.</summary>
                 return proxies['roomHub'].invoke.apply(proxies['roomHub'], $.merge(["ListUsers"], $.makeArray(arguments)));
+             },
+
+            sendGameMessage: function (message) {
+            /// <summary>Calls the SendGameMessage method on the server-side RoomHub hub.&#10;Returns a jQuery.Deferred() promise.</summary>
+            /// <param name=\"message\" type=\"String\">Server side type is System.String</param>
+                return proxies['roomHub'].invoke.apply(proxies['roomHub'], $.merge(["SendGameMessage"], $.makeArray(arguments)));
              },
 
             sendMessage: function (message) {

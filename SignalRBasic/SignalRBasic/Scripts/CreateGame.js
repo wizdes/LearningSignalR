@@ -76,32 +76,35 @@ function playCard(otherPlayerNum, playerCard) {
 }
 
 function enterPickState() {
+    drawButton(gameStage, "Resources/pickUpButton.png", 300, 350);
+    drawButton(gameStage, "Resources/passButton.png", 300, 420);
+}
+
+//draws buttons (200x50, 3 frames)
+function drawButton(gameStage, imageSrc, xLocation, yLocation) {
     var image = new Image();
-    image.src = "Resources/pickUpButton.png";
+    image.src = imageSrc;
 
-    //var image = new Image();
-    //image.src = "resource/PassButton.png";
-
-    // display pickup/pass button
-    //document.getElementById("loader").className = "";
-
-    //evt.target is how to reference the event's target
-
-    // spritesheet "bitmap" button:
+    //passButton.png
+    //pickSuitButton.png
     var spriteSheet = new createjs.SpriteSheet({
         images: [image],
         frames: { width: 200, height: 50, count: 3 },
         animations: { out: 0, over: 1, down: 2 }
     });
     var bitmapButton = new createjs.Sprite(spriteSheet, "up");
-    gameStage.addChild(bitmapButton).set({ x: 300, y: 350 });
+    gameStage.addChild(bitmapButton).set({ x: xLocation, y: yLocation });
     var bitmapHelper = new createjs.ButtonHelper(bitmapButton);
     // make the buttons clickable
+
+    // maybe pass the button helper too
+    //bitmapHelper is used to make actions with the click
+
 }
 
 function enterTrumpState() {
-
-
+    drawButton(gameStage, "Resources/pickSuitButton.png", 310, 350);
+    drawButton(gameStage, "Resources/passButton.png", 300, 420);
 }
 
 function enterPlayCardState() {

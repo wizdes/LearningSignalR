@@ -76,22 +76,32 @@ function playCard(otherPlayerNum, playerCard) {
 }
 
 function enterPickState() {
-    // hide other buttons
     var image = new Image();
-    image.src = "resource/PickUp.png";
-    image.onload = handleImageLoad;
+    image.src = "Resources/pickUpButton.png";
 
-    var image = new Image();
-    image.src = "resource/Pass.png";
-    image.onload = handleImageLoad;
+    //var image = new Image();
+    //image.src = "resource/PassButton.png";
 
     // display pickup/pass button
+    //document.getElementById("loader").className = "";
 
+    //evt.target is how to reference the event's target
+
+    // spritesheet "bitmap" button:
+    var spriteSheet = new createjs.SpriteSheet({
+        images: [image],
+        frames: { width: 200, height: 50, count: 3 },
+        animations: { out: 0, over: 1, down: 2 }
+    });
+    var bitmapButton = new createjs.Sprite(spriteSheet, "up");
+    gameStage.addChild(bitmapButton).set({ x: 300, y: 350 });
+    var bitmapHelper = new createjs.ButtonHelper(bitmapButton);
     // make the buttons clickable
 }
 
 function enterTrumpState() {
-    
+
+
 }
 
 function enterPlayCardState() {
@@ -151,7 +161,11 @@ function initGamePage(cardList) {
         handiter = handiter + 1;
 
         // using "on" binds the listener to the scope of the currentTarget by default
-        // in this case that means it executes in the scope of the button.
+        // in this case that means it executes in the scope of the button
+
+        //evt.target is how to reference the event's target
+        // update the sendCard call to do this
+
         bmp.on("mousedown", function (evt) {
             this.parent.addChild(this);
             this.x = gameStage.canvas.width/2;
@@ -162,7 +176,10 @@ function initGamePage(cardList) {
         });
 
         gameStage.addChild(bmp);
+
     }
+
+    enterPickState();
 
     update = true;
 }

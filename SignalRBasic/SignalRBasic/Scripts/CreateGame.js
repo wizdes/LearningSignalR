@@ -75,6 +75,29 @@ function playCard(otherPlayerNum, playerCard) {
     update = true;
 }
 
+function enterPickState() {
+    // hide other buttons
+    var image = new Image();
+    image.src = "resource/PickUp.png";
+    image.onload = handleImageLoad;
+
+    var image = new Image();
+    image.src = "resource/Pass.png";
+    image.onload = handleImageLoad;
+
+    // display pickup/pass button
+
+    // make the buttons clickable
+}
+
+function enterTrumpState() {
+    
+}
+
+function enterPlayCardState() {
+    
+}
+
 function initGamePage(cardList) {
     if (window.top != window) {
         document.getElementById("header").style.display = "none";

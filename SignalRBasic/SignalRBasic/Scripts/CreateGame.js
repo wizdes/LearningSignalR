@@ -76,35 +76,27 @@ function playCard(otherPlayerNum, playerCard) {
 }
 
 function enterPickState() {
-    drawButton(gameStage, "Resources/pickUpButton.png", 300, 350);
-    drawButton(gameStage, "Resources/passButton.png", 300, 420);
-}
+    // clear
 
-//draws buttons (200x50, 3 frames)
-function drawButton(gameStage, imageSrc, xLocation, yLocation) {
-    var image = new Image();
-    image.src = imageSrc;
-
-    //passButton.png
-    //pickSuitButton.png
-    var spriteSheet = new createjs.SpriteSheet({
-        images: [image],
-        frames: { width: 200, height: 50, count: 3 },
-        animations: { out: 0, over: 1, down: 2 }
-    });
-    var bitmapButton = new createjs.Sprite(spriteSheet, "up");
-    gameStage.addChild(bitmapButton).set({ x: xLocation, y: yLocation });
-    var bitmapHelper = new createjs.ButtonHelper(bitmapButton);
-    // make the buttons clickable
-
-    // maybe pass the button helper too
-    //bitmapHelper is used to make actions with the click
-
+    drawButton(gameStage, "Resources/pickUpButton.png", 300, 350, cardPickedUp);
+    drawButton(gameStage, "Resources/passButton.png", 300, 420, cardPassed);
 }
 
 function enterTrumpState() {
-    drawButton(gameStage, "Resources/pickSuitButton.png", 310, 350);
-    drawButton(gameStage, "Resources/passButton.png", 300, 420);
+    drawButton(gameStage, "Resources/pickSuitButton.png", 310, 350, suitChosen);
+    drawButton(gameStage, "Resources/passButton.png", 300, 420, cardPassed);
+}
+
+function cardPickedUp() {
+    
+}
+
+function cardPassed() {
+    
+}
+
+function suitChosen() {
+    
 }
 
 function enterPlayCardState() {
@@ -185,4 +177,30 @@ function initGamePage(cardList) {
     enterPickState();
 
     update = true;
+}
+
+//draws buttons (200x50, 3 frames)
+function drawButton(gameStage, imageSrc, xLocation, yLocation, handler) {
+    var image = new Image();
+    image.src = imageSrc;
+
+    //passButton.png
+    //pickSuitButton.png
+    var spriteSheet = new createjs.SpriteSheet({
+        images: [image],
+        frames: { width: 200, height: 50, count: 3 },
+        animations: { out: 0, over: 1, down: 2 }
+    });
+    var bitmapButton = new createjs.Sprite(spriteSheet, "up");
+    gameStage.addChild(bitmapButton).set({ x: xLocation, y: yLocation });
+    var bitmapHelper = new createjs.ButtonHelper(bitmapButton);
+    // make the buttons clickable
+
+    // maybe pass the button helper too
+    //bitmapHelper is used to make actions with the click
+
+    if(handler != null)
+    {
+        bitmapHelper.on("click", handler);
+    }
 }

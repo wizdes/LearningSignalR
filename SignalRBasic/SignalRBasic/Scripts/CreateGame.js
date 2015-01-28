@@ -4,6 +4,10 @@ var bmpPlayerLeft = [];
 var bmpPlayerUp = [];
 var bmpPlayerRight = [];
 var euchreGameStage;
+var globalPickButton;
+var globalPassButton;
+var globalTrumpButton;
+
 
 function setupOtherUsers() {
     cardBackImage = new Image();
@@ -80,8 +84,8 @@ function enterPickState() {
     // clear existing buttons (should be none)
     euchreGameStage = "drawStage";
 
-    drawButton(gameStage, "Resources/pickUpButton.png", 300, 350, cardPickedUp);
-    drawButton(gameStage, "Resources/passButton.png", 300, 420, cardPassed);
+    globalPickButton = drawButton(gameStage, "Resources/pickUpButton.png", 300, 350, cardPickedUp);
+    globalPassButton = drawButton(gameStage, "Resources/passButton.png", 300, 420, cardPassed);
 
     // display the middle card 2
 }
@@ -89,15 +93,21 @@ function enterPickState() {
 function enterTrumpState() {
     euchreGameStage = "trumpStage";
     // clear buttons (from pick state) 1
+    globalPassButton.visible = false;
 
     // create an input field for the suit 7
 
-    drawButton(gameStage, "Resources/pickSuitButton.png", 310, 350, suitChosen);
-    drawButton(gameStage, "Resources/passButton.png", 300, 420, cardPassed);
+    if (globalTrumpButton == null) {
+        globalTrumpButton = drawButton(gameStage, "Resources/pickSuitButton.png", 310, 350, suitChosen);
+    }
+    globalPassButton = drawButton(gameStage, "Resources/passButton.png", 300, 420, cardPassed);
 }
 
 function enterPlayCardState() {
+    euchreGameStage = "playStage";
     // clear buttons (from either pick or trump state) 1
+    globalPassButton.visible = false;
+    globalPickButton.visible = false;
 }
 
 function cardPickedUp() {
@@ -225,8 +235,6 @@ function drawButton(gameStage, imageSrc, xLocation, yLocation, handler) {
     var image = new Image();
     image.src = imageSrc;
 
-    //passButton.png
-    //pickSuitButton.png
     var spriteSheet = new createjs.SpriteSheet({
         images: [image],
         frames: { width: 200, height: 50, count: 3 },
@@ -235,13 +243,16 @@ function drawButton(gameStage, imageSrc, xLocation, yLocation, handler) {
     var bitmapButton = new createjs.Sprite(spriteSheet, "up");
     gameStage.addChild(bitmapButton).set({ x: xLocation, y: yLocation });
     var bitmapHelper = new createjs.ButtonHelper(bitmapButton);
+
     // make the buttons clickable
 
     // maybe pass the button helper too
     //bitmapHelper is used to make actions with the click
 
-    if(handler != null)
+    if(handler != undefined)
     {
-        bitmapHelper.on("click", handler);
+        bitmapButton.on("click", handler);
     }
+
+    return bitmapButton;
 }

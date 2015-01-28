@@ -3,6 +3,7 @@ var imgArray;
 var bmpPlayerLeft = [];
 var bmpPlayerUp = [];
 var bmpPlayerRight = [];
+var euchreGameStage;
 
 function setupOtherUsers() {
     cardBackImage = new Image();
@@ -76,31 +77,63 @@ function playCard(otherPlayerNum, playerCard) {
 }
 
 function enterPickState() {
-    // clear
+    // clear existing buttons (should be none)
+    euchreGameStage = "drawStage";
 
     drawButton(gameStage, "Resources/pickUpButton.png", 300, 350, cardPickedUp);
     drawButton(gameStage, "Resources/passButton.png", 300, 420, cardPassed);
+
+    // display the middle card 2
 }
 
 function enterTrumpState() {
+    euchreGameStage = "trumpStage";
+    // clear buttons (from pick state) 1
+
+    // create an input field for the suit 7
+
     drawButton(gameStage, "Resources/pickSuitButton.png", 310, 350, suitChosen);
     drawButton(gameStage, "Resources/passButton.png", 300, 420, cardPassed);
 }
 
+function enterPlayCardState() {
+    // clear buttons (from either pick or trump state) 1
+}
+
 function cardPickedUp() {
-    
+    // update cards 3
+
+    // do a switch with one in the hand 3
+
+    // update the cards in hand 3
+
+    // send the server request to make everyone go to play state 4
+
+    enterPlayCardState();
 }
 
 function cardPassed() {
-    
+    if (euchreGameStage == "drawStage") {
+        if (lastUser) {
+            // send the server request to go to trump state 6
+            enterTrumpState();
+        } else {
+            // send the server request to go to pass state for next user 5
+        }
+    }
+    else if (euchreGameStage == "trumpStage") {
+        if (lastUser) {
+            //do not accept the last user 9
+            // essentially, do nothing
+        } else {
+            // send the server request to go to pass state for next user 8
+        }
+    }
 }
 
 function suitChosen() {
-    
-}
-
-function enterPlayCardState() {
-    
+    euchreGameStage = "playStage";
+    enterPlayCardState();
 }
 
 function initGamePage(cardList) {
@@ -109,6 +142,8 @@ function initGamePage(cardList) {
     }
 
     imgArray = [];
+
+    euchreGameStage = "drawStage";
 
     $("#TitleText").html("Euchre With Friends - Game");
 
@@ -162,12 +197,18 @@ function initGamePage(cardList) {
         // update the sendCard call to do this
 
         bmp.on("mousedown", function (evt) {
-            this.parent.addChild(this);
-            this.x = gameStage.canvas.width/2;
-            this.y = gameStage.canvas.height/2;
-            this.visible = true;
-            update = true;
-            sendCard(indexToBMP.indexOf(this));
+            if (euchreGameStage == "drawStage") {
+
+            }else if (euchreGameStage == "trumpStage") {
+                // do nothing.
+            }else {
+                this.parent.addChild(this);
+                this.x = gameStage.canvas.width / 2;
+                this.y = gameStage.canvas.height / 2;
+                this.visible = true;
+                update = true;
+                sendCard(indexToBMP.indexOf(this));
+            }
         });
 
         gameStage.addChild(bmp);

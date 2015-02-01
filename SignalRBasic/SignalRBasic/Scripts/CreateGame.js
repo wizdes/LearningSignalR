@@ -8,6 +8,11 @@ var globalPickButton;
 var globalPassButton;
 var globalTrumpButton;
 
+// these can be in a client game state class (reduces network calls)
+var globalMiddleCardIndex;
+var currentTurn; //will be 1,2,3,4
+var pickedUpButtonPressed;
+var switched;
 
 function setupOtherUsers() {
     cardBackImage = new Image();
@@ -111,15 +116,13 @@ function enterPlayCardState() {
 }
 
 function cardPickedUp() {
-    // update cards 3
-
-    // do a switch with one in the hand 3
-
-    // update the cards in hand 3
-
-    // send the server request to make everyone go to play state 4
-
-    enterPlayCardState();
+    globalPickButton.enabled = false;
+    globalPickButton.enabled = false;
+    if (pickedUpButtonPressed == false) {
+        pickedUpButtonPressed = true;
+        globalPickButton.gotoAndStop("down");
+        globalPassButton.gotoAndStop("down");
+    }
 }
 
 function cardPassed() {
@@ -146,7 +149,10 @@ function suitChosen() {
     enterPlayCardState();
 }
 
-function initGamePage(cardList) {
+function initGamePage(cardList, middleCard) {
+    currentTurn = 1;
+    pickedUpButtonPressed = false;
+    switched = false;
     if (window.top != window) {
         document.getElementById("header").style.display = "none";
     }
@@ -159,6 +165,8 @@ function initGamePage(cardList) {
 
     // enable touch interactions if supported on the current device:
     createjs.Touch.enable(gameStage);
+
+    globalMiddleCardIndex = middleCard.num;
 
     // enabled mouse over / out events
     gameStage.enableMouseOver(10);
@@ -185,33 +193,68 @@ function initGamePage(cardList) {
         }
 
         bmp = new createjs.Bitmap(imgArray[i]);
-        // this assumes hand count of 5
-        bmp.x = gameStage.canvas.width/4 + gameStage.canvas.width /10 * handiter;
-        bmp.y = gameStage.canvas.height - 175;
-        bmp.scaleX = bmp.scaleY = 0.18;
-        //130 - 70  
 
-        indexToBMP[i] = bmp;
-
-        if (!shouldShow) {
+        if (i == middleCard.num) {
+            shouldShow = true;
+            bmp = new createjs.Bitmap(imgArray[i]);
+            bmp.x = gameStage.canvas.width / 2;
+            bmp.y = gameStage.canvas.height / 2;
+            bmp.scaleX = bmp.scaleY = 0.18;
+        } else if (shouldShow) {
+            bmp = new createjs.Bitmap(imgArray[i]);
+            // this assumes hand count of 5
+            bmp.x = gameStage.canvas.width / 4 + gameStage.canvas.width / 10 * handiter;
+            bmp.y = gameStage.canvas.height - 175;
+            bmp.scaleX = bmp.scaleY = 0.18;
+            handiter = handiter + 1;
+            //130 - 70  
+        } else {
             bmp.visible = false;
             continue;
         }
 
-        handiter = handiter + 1;
+        indexToBMP[i] = bmp;
+
+        //if (!shouldShow) {
+        //    bmp.visible = false;
+        //    continue;
+        //}
 
         // using "on" binds the listener to the scope of the currentTarget by default
         // in this case that means it executes in the scope of the button
 
         //evt.target is how to reference the event's target
         // update the sendCard call to do this
+        // actually, thinking about this. wtf. how?
+        if (i != middleCard.num) {
+            bmp.on("mousedown", function(evt) {
+                if (euchreGameStage == "drawStage") {
+                    if (pickedUpButtonPressed) {
+                        // switch with the mid card.
+                        indexToBMP[globalMiddleCardIndex].x = this.x;
+                        indexToBMP[globalMiddleCardIndex].y = this.y;
+                        this.visible = false;
+                        update = true;
 
-        bmp.on("mousedown", function (evt) {
-            if (euchreGameStage == "drawStage") {
+                        // send the server request to make everyone go to play state 4
 
-            }else if (euchreGameStage == "trumpStage") {
-                // do nothing.
-            }else {
+                        // clears the cards and gets the game ready for the play state
+                        enterPlayCardState();
+                    }
+                } else if (euchreGameStage == "trumpStage") {
+                    // do nothing.
+                } else {
+                    this.parent.addChild(this);
+                    this.x = gameStage.canvas.width / 2;
+                    this.y = gameStage.canvas.height / 2;
+                    this.visible = true;
+                    update = true;
+                    sendCard(indexToBMP.indexOf(this));
+                }
+            });
+        } else {
+            bmp.visible = true;
+            if (euchreGameStage == "playStage") {
                 this.parent.addChild(this);
                 this.x = gameStage.canvas.width / 2;
                 this.y = gameStage.canvas.height / 2;
@@ -219,7 +262,7 @@ function initGamePage(cardList) {
                 update = true;
                 sendCard(indexToBMP.indexOf(this));
             }
-        });
+        }
 
         gameStage.addChild(bmp);
 
@@ -238,19 +281,18 @@ function drawButton(gameStage, imageSrc, xLocation, yLocation, handler) {
     var spriteSheet = new createjs.SpriteSheet({
         images: [image],
         frames: { width: 200, height: 50, count: 3 },
-        animations: { out: 0, over: 1, down: 2 }
+        animations: { out: [0], over: [0], down: [2] }
     });
-    var bitmapButton = new createjs.Sprite(spriteSheet, "up");
-    gameStage.addChild(bitmapButton).set({ x: xLocation, y: yLocation });
-    var bitmapHelper = new createjs.ButtonHelper(bitmapButton);
+    var bitmapButton = new createjs.Sprite(spriteSheet);
+    bitmapButton.x = xLocation;
+    bitmapButton.y = yLocation;
+    gameStage.addChild(bitmapButton);
+    //var bitmapHelper = new createjs.ButtonHelper(bitmapButton, "out", "over", "down");
+
+    bitmapButton.gotoAndStop("out");
 
     // make the buttons clickable
-
-    // maybe pass the button helper too
-    //bitmapHelper is used to make actions with the click
-
-    if(handler != undefined)
-    {
+    if (handler != null) {
         bitmapButton.on("click", handler);
     }
 

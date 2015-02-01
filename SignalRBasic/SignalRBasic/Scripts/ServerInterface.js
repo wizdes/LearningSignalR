@@ -53,7 +53,7 @@ $(function () {
     hub.client.initAddCards = function (cardsAdded) {
         var jsonObject = JSON.parse(cardsAdded);
         cleanupLobbyPage();
-        initGamePage(jsonObject.playerCards[playerNum - 1]);
+        initGamePage(jsonObject.playerCards[playerNum - 1], jsonObject.cardToPickup);
     };
 
     hub.client.playCard = function(playerNum, cardNum) {

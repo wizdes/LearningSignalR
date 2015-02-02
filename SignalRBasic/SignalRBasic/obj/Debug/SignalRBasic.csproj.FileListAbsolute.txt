@@ -71,6 +71,6 @@ Z:\Users\yili\LearningSignalR\LearningSignalR\SignalRBasic\SignalRBasic\bin\Micr
 Z:\Users\yili\LearningSignalR\LearningSignalR\SignalRBasic\SignalRBasic\bin\Microsoft.Owin.Host.SystemWeb.xml
 Z:\Users\yili\LearningSignalR\LearningSignalR\SignalRBasic\SignalRBasic\bin\Microsoft.Owin.Security.xml
 Z:\Users\yili\LearningSignalR\LearningSignalR\SignalRBasic\SignalRBasic\bin\Newtonsoft.Json.xml
-Z:\Users\yili\LearningSignalR\LearningSignalR\SignalRBasic\SignalRBasic\obj\Debug\SignalRBasic.csprojResolveAssemblyReference.cache
 Z:\Users\yili\LearningSignalR\LearningSignalR\SignalRBasic\SignalRBasic\obj\Debug\SignalRBasic.dll
 Z:\Users\yili\LearningSignalR\LearningSignalR\SignalRBasic\SignalRBasic\obj\Debug\SignalRBasic.pdb
+Z:\Users\yili\LearningSignalR\LearningSignalR\SignalRBasic\SignalRBasic\obj\Debug\SignalRBasic.csprojResolveAssemblyReference.cache

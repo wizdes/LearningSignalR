@@ -85,17 +85,19 @@ function playCard(otherPlayerNum, playerCard) {
     update = true;
 }
 
-function enterPickState() {
-    // clear existing buttons (should be none)
+function enterPickState(isFromServer) {
     euchreGameStage = "drawStage";
-
     globalPickButton = drawButton(gameStage, "Resources/pickUpButton.png", 300, 350, cardPickedUp);
     globalPassButton = drawButton(gameStage, "Resources/passButton.png", 300, 420, cardPassed);
 
-    // display the middle card 2
+
+    // this is not necessary, since it gets call initially
+    if (!isFromServer) {
+        //sendServerState("")
+    }
 }
 
-function enterTrumpState() {
+function enterTrumpState(isFromServer) {
     euchreGameStage = "trumpStage";
     // clear buttons (from pick state) 1
     globalPassButton.visible = false;
@@ -106,13 +108,24 @@ function enterTrumpState() {
         globalTrumpButton = drawButton(gameStage, "Resources/pickSuitButton.png", 310, 350, suitChosen);
     }
     globalPassButton = drawButton(gameStage, "Resources/passButton.png", 300, 420, cardPassed);
+
+    if (!isFromServer) {
+        sendServerState("trump");
+    }
 }
 
-function enterPlayCardState() {
+function enterPlayCardState(isFromServer) {
     euchreGameStage = "playStage";
-    // clear buttons (from either pick or trump state) 1
+
+    //clear the middle card if possible
+    indexToBMP[globalMiddleCardIndex].visible = false;
+
     globalPassButton.visible = false;
     globalPickButton.visible = false;
+
+    if (!isFromServer) {
+        sendServerState("play");
+    }
 }
 
 function cardPickedUp() {
@@ -239,7 +252,7 @@ function initGamePage(cardList, middleCard) {
                         // send the server request to make everyone go to play state 4
 
                         // clears the cards and gets the game ready for the play state
-                        enterPlayCardState();
+                        enterPlayCardState(false);
                     }
                 } else if (euchreGameStage == "trumpStage") {
                     // do nothing.
@@ -253,23 +266,22 @@ function initGamePage(cardList, middleCard) {
                 }
             });
         } else {
-            bmp.visible = true;
-            if (euchreGameStage == "playStage") {
-                this.parent.addChild(this);
-                this.x = gameStage.canvas.width / 2;
-                this.y = gameStage.canvas.height / 2;
-                this.visible = true;
-                update = true;
-                sendCard(indexToBMP.indexOf(this));
-            }
+            bmp.on("mousedown", function(evt) {
+                if (euchreGameStage == "playStage") {
+                    this.parent.addChild(this);
+                    this.x = gameStage.canvas.width / 2;
+                    this.y = gameStage.canvas.height / 2;
+                    this.visible = true;
+                    update = true;
+                    sendCard(indexToBMP.indexOf(this));
+                }
+            });
         }
 
         gameStage.addChild(bmp);
-
     }
 
-    enterPickState();
-
+    enterPickState(false);
     update = true;
 }
 

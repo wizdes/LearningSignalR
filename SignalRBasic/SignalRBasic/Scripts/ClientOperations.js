@@ -41,6 +41,10 @@ function sendCard(cardnum) {
     hub.server.sendGameMessage("Card:" + playerNum + ":" + cardnum);
 }
 
+function sendServerState(stateString) {
+    hub.server.sendGameMessage("State:" + stateString);
+}
+
 function listUsersForMyGroup() {
     hub.server.listPeopleInGroup().done(function (result) {
         result.forEach(function (entry) {

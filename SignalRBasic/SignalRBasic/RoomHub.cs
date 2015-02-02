@@ -150,7 +150,14 @@ namespace SignalRBasic
                 hubcontext.Clients.Group(groupName).playCard(playerNum, cardNum);
                 //
             }
-            //let's make this comma delimited messages as well
+            else if(message.Contains("State"))
+            {
+                string groupName = rooms[Context.ConnectionId];
+                var hubcontext = GlobalHost.ConnectionManager.GetHubContext<RoomHub>();
+
+                // send the message to the group
+                hubcontext.Clients.Group(groupName).changeState(message.Split(':')[1]);                
+            }
         }
     }
 }

@@ -60,6 +60,14 @@ $(function () {
         playCard(playerNum, cardNum);
     };
 
+    hub.client.changeState = function(cardString) {
+        if (cardString == "trump") {
+            enterTrumpState(true);
+        } else if(cardString == "play") {
+            enterPlayCardState(true);
+        }
+    };
+
     hub.client.cardAction = function(cardActionString) {
 
     };

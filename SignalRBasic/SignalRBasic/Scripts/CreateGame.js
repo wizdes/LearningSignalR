@@ -117,14 +117,14 @@ function enterTrumpState(isFromServer) {
 function enterPlayCardState(isFromServer) {
     euchreGameStage = "playStage";
 
-    //clear the middle card if possible
-    indexToBMP[globalMiddleCardIndex].visible = false;
-
     globalPassButton.visible = false;
     globalPickButton.visible = false;
 
     if (!isFromServer) {
         sendServerState("play");
+    } else {
+        //clear the middle card if it isn't local
+        indexToBMP[globalMiddleCardIndex].visible = false;
     }
 }
 

@@ -13,6 +13,8 @@ var globalMiddleCardIndex;
 var currentTurn; //will be 1,2,3,4
 var pickedUpButtonPressed;
 var switched;
+var removedMiddle;
+var lastUser;
 
 function setupOtherUsers() {
     cardBackImage = new Image();
@@ -86,15 +88,11 @@ function playCard(otherPlayerNum, playerCard) {
 }
 
 function enterPickState(isFromServer) {
+    //TODO: make this function something the server calls to populate it
+    // then remove from the initGame call, as it should only be called by #1
     euchreGameStage = "drawStage";
     globalPickButton = drawButton(gameStage, "Resources/pickUpButton.png", 300, 350, cardPickedUp);
     globalPassButton = drawButton(gameStage, "Resources/passButton.png", 300, 420, cardPassed);
-
-
-    // this is not necessary, since it gets call initially
-    if (!isFromServer) {
-        //sendServerState("")
-    }
 }
 
 function enterTrumpState(isFromServer) {
@@ -122,7 +120,8 @@ function enterPlayCardState(isFromServer) {
 
     if (!isFromServer) {
         sendServerState("play");
-    } else {
+        removedMiddle = true;
+    } else if(removedMiddle !== true) {
         //clear the middle card if it isn't local
         indexToBMP[globalMiddleCardIndex].visible = false;
     }
@@ -140,15 +139,20 @@ function cardPickedUp() {
 
 function cardPassed() {
     if (euchreGameStage == "drawStage") {
-        if (lastUser) {
+        if (playerNum == lastUser) {
             // send the server request to go to trump state 6
             enterTrumpState();
         } else {
+            //TODO:
             // send the server request to go to pass state for next user 5
+
+            // hide all the buttons
+            globalPassButton.visible = false;
+            globalPickButton.visible = false;
         }
     }
     else if (euchreGameStage == "trumpStage") {
-        if (lastUser) {
+        if (playerNum == lastUser) {
             //do not accept the last user 9
             // essentially, do nothing
         } else {
@@ -165,7 +169,10 @@ function suitChosen() {
 function initGamePage(cardList, middleCard) {
     currentTurn = 1;
     pickedUpButtonPressed = false;
+    removedMiddle = false;
     switched = false;
+    // get the last user from the server
+    lastUser = 4;
     if (window.top != window) {
         document.getElementById("header").style.display = "none";
     }

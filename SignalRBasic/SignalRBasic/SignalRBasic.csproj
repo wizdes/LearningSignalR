@@ -255,6 +255,7 @@
     <Content Include="Room.html" />
     <Content Include="Scripts\cardUtil.js" />
     <Content Include="Scripts\chat.js" />
+    <None Include="Properties\PublishProfiles\ChatApp2 %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\ChatApp2 - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\ChatApp2 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\ChatApp2 - Web Deploy %282%29.pubxml" />

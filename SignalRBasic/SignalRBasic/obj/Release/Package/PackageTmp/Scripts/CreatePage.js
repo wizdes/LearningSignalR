@@ -63,7 +63,7 @@ function initPage() {
 
     update = true;
 
-    gameStage.update();
+    gameStage.update(); 
 
     createjs.Ticker.addEventListener("tick", tick);
 }

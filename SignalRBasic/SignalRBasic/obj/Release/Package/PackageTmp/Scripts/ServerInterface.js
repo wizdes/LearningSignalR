@@ -53,11 +53,27 @@ $(function () {
     hub.client.initAddCards = function (cardsAdded) {
         var jsonObject = JSON.parse(cardsAdded);
         cleanupLobbyPage();
-        initGamePage(jsonObject.playerCards[playerNum - 1]);
+        initGamePage(jsonObject.playerCards[playerNum - 1], jsonObject.cardToPickup);
     };
 
     hub.client.playCard = function(playerNum, cardNum) {
         playCard(playerNum, cardNum);
+    };
+
+    hub.client.changeState = function(cardString) {
+        if (cardString == "trump") {
+            enterTrumpState(true);
+        } else if(cardString == "play") {
+            enterPlayCardState(true);
+        }
+    };
+
+    hub.client.changeTurn = function(cardString) {
+        if (euchreGameStage == "drawStage") {
+            if (cardString == playerNum) {
+                enterPickState(true);
+            }
+        }
     };
 
     hub.client.cardAction = function(cardActionString) {

@@ -158,6 +158,14 @@ namespace SignalRBasic
                 // send the message to the group
                 hubcontext.Clients.Group(groupName).changeState(message.Split(':')[1]);                
             }
+            else if (message.Contains("Turn"))
+            {
+                string groupName = rooms[Context.ConnectionId];
+                var hubcontext = GlobalHost.ConnectionManager.GetHubContext<RoomHub>();
+
+                // send the message to the group
+                hubcontext.Clients.Group(groupName).changeTurn(message.Split(':')[1]);                                
+            }
         }
     }
 }

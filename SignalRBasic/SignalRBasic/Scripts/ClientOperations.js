@@ -41,6 +41,11 @@ function sendCard(cardnum) {
     hub.server.sendGameMessage("Card:" + playerNum + ":" + cardnum);
 }
 
+function sendNextPlayer() {
+    var nextPlayerNum = playerNum + 1;
+    hub.server.sendGameMessage("Turn:" + nextPlayerNum);
+}
+
 function sendServerState(stateString) {
     hub.server.sendGameMessage("State:" + stateString);
 }

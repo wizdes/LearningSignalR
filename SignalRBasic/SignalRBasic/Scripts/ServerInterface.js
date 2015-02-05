@@ -68,6 +68,14 @@ $(function () {
         }
     };
 
+    hub.client.changeTurn = function(cardString) {
+        if (euchreGameStage == "drawStage") {
+            if (cardString == playerNum) {
+                enterPickState(true);
+            }
+        }
+    };
+
     hub.client.cardAction = function(cardActionString) {
 
     };

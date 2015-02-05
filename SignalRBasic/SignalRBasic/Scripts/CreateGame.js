@@ -88,11 +88,17 @@ function playCard(otherPlayerNum, playerCard) {
 }
 
 function enterPickState(isFromServer) {
-    //TODO: make this function something the server calls to populate it
+    //TODO: make this function something the server calls to populate it -> 1
     // then remove from the initGame call, as it should only be called by #1
     euchreGameStage = "drawStage";
+
     globalPickButton = drawButton(gameStage, "Resources/pickUpButton.png", 300, 350, cardPickedUp);
     globalPassButton = drawButton(gameStage, "Resources/passButton.png", 300, 420, cardPassed);
+
+    if (!isFromServer) {
+        globalPickButton.visible = false;
+        globalPassButton.visible = false;
+    }
 }
 
 function enterTrumpState(isFromServer) {
@@ -143,8 +149,7 @@ function cardPassed() {
             // send the server request to go to trump state 6
             enterTrumpState();
         } else {
-            //TODO:
-            // send the server request to go to pass state for next user 5
+            sendNextPlayer();
 
             // hide all the buttons
             globalPassButton.visible = false;
@@ -213,27 +218,23 @@ function initGamePage(cardList, middleCard) {
         }
 
         bmp = new createjs.Bitmap(imgArray[i]);
+        bmp.scaleX = bmp.scaleY = 0.18;
+        indexToBMP[i] = bmp;
 
         if (i == middleCard.num) {
             shouldShow = true;
-            bmp = new createjs.Bitmap(imgArray[i]);
             bmp.x = gameStage.canvas.width / 2;
             bmp.y = gameStage.canvas.height / 2;
-            bmp.scaleX = bmp.scaleY = 0.18;
         } else if (shouldShow) {
-            bmp = new createjs.Bitmap(imgArray[i]);
             // this assumes hand count of 5
             bmp.x = gameStage.canvas.width / 4 + gameStage.canvas.width / 10 * handiter;
             bmp.y = gameStage.canvas.height - 175;
-            bmp.scaleX = bmp.scaleY = 0.18;
             handiter = handiter + 1;
             //130 - 70  
         } else {
             bmp.visible = false;
             continue;
         }
-
-        indexToBMP[i] = bmp;
 
         //if (!shouldShow) {
         //    bmp.visible = false;
@@ -288,7 +289,11 @@ function initGamePage(cardList, middleCard) {
         gameStage.addChild(bmp);
     }
 
-    enterPickState(false);
+    if (playerNum == 1) {
+        enterPickState(true);
+    } else {
+        enterPickState(false);
+    }
     update = true;
 }
 

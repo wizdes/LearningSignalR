@@ -88,8 +88,6 @@ function playCard(otherPlayerNum, playerCard) {
 }
 
 function enterPickState(isFromServer) {
-    //TODO: make this function something the server calls to populate it -> 1
-    // then remove from the initGame call, as it should only be called by #1
     euchreGameStage = "drawStage";
 
     globalPickButton = drawButton(gameStage, "Resources/pickUpButton.png", 300, 350, cardPickedUp);
@@ -103,15 +101,20 @@ function enterPickState(isFromServer) {
 
 function enterTrumpState(isFromServer) {
     euchreGameStage = "trumpStage";
-    // clear buttons (from pick state) 1
-    globalPassButton.visible = false;
+    globalPickButton.visible = false;
 
     // create an input field for the suit 7
+
 
     if (globalTrumpButton == null) {
         globalTrumpButton = drawButton(gameStage, "Resources/pickSuitButton.png", 310, 350, suitChosen);
     }
-    globalPassButton = drawButton(gameStage, "Resources/passButton.png", 300, 420, cardPassed);
+    if (globalPassButton == null) {
+        globalPassButton = drawButton(gameStage, "Resources/passButton.png", 300, 420, cardPassed);
+    }
+
+    globalTrumpButton.visible = false;
+    globalPassButton.visible = false;
 
     if (!isFromServer) {
         sendServerState("trump");
@@ -158,7 +161,6 @@ function cardPassed() {
     }
     else if (euchreGameStage == "trumpStage") {
         if (playerNum == lastUser) {
-            //do not accept the last user 9
             // essentially, do nothing
         } else {
             // send the server request to go to pass state for next user 8
@@ -235,14 +237,6 @@ function initGamePage(cardList, middleCard) {
             bmp.visible = false;
             continue;
         }
-
-        //if (!shouldShow) {
-        //    bmp.visible = false;
-        //    continue;
-        //}
-
-        // using "on" binds the listener to the scope of the currentTarget by default
-        // in this case that means it executes in the scope of the button
 
         //evt.target is how to reference the event's target
         // update the sendCard call to do this

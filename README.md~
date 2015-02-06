@@ -15,11 +15,11 @@ c) client removes the card and puts it in the middle <fixed>
 5) logic for the first phase (pick up/choose trump) 
 
 *Broken down below*
-1) clear buttons (from pick state) 1
-2) display the middle card 2
-3) update cards 3
-3a) do a switch with one in the hand 3
-3b) update the cards in hand 3
+1) clear buttons (from pick state) 1 <fixed>
+2) display the middle card 2 <fixed>
+3) update cards 3 <fixed>
+3a) do a switch with one in the hand 3 <fixed>
+3b) update the cards in hand 3 <fixed>
 4) send the server request to make everyone go to play state 4
 5) send the server request to go to pass state for next user 5
 6) send the server request to go to trump state 6
@@ -38,5 +38,6 @@ V1!
 
 BUG:
 1) load all games when loading joining a global session <fixed>
+2) do an indication with the button to show you can choose the card
 
 

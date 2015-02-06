@@ -20,12 +20,12 @@ c) client removes the card and puts it in the middle <fixed>
 3) update cards 3 <fixed>
 3a) do a switch with one in the hand 3 <fixed>
 3b) update the cards in hand 3 <fixed>
-4) send the server request to make everyone go to play state 4
-5) send the server request to go to pass state for next user 5
+4) send the server request to make everyone go to play state 4 <fixed>
+5) send the server request to go to pass state for next user 5 <fixed>
 6) send the server request to go to trump state 6
 7) create an input field for the suit 7
-8) send the server request to go to pass state for next user 8
-9) do not accept the last user 9
+8) send the server request to go to pass state for next user 8 <fixed>
+9) do not accept the last user 9 <fixed>
 
 Goal -> finish this by end of January
 

@@ -62,7 +62,9 @@ $(function () {
 
     hub.client.changeState = function(cardString) {
         if (cardString == "trump") {
-            enterTrumpState(true);
+            if (playerNum == 1) {
+                enterTrumpState(true);
+            }
         } else if(cardString == "play") {
             enterPlayCardState(true);
         }
@@ -72,6 +74,11 @@ $(function () {
         if (euchreGameStage == "drawStage") {
             if (cardString == playerNum) {
                 enterPickState(true);
+            }
+        }
+        else if (euchreGameStage == "trumpStage") {
+            if (cardString == playerNum) {
+                enterTrumpState(true);
             }
         }
     };

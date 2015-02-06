@@ -119,6 +119,10 @@ function enterTrumpState(isFromServer) {
     if (!isFromServer) {
         sendServerState("trump");
     }
+    else {
+        globalTrumpButton.visible = true;
+        globalPassButton.visible = true;
+    }
 }
 
 function enterPlayCardState(isFromServer) {
@@ -150,7 +154,7 @@ function cardPassed() {
     if (euchreGameStage == "drawStage") {
         if (playerNum == lastUser) {
             // send the server request to go to trump state 6
-            enterTrumpState();
+            enterTrumpState(false, -1);
         } else {
             sendNextPlayer();
 
@@ -164,11 +168,17 @@ function cardPassed() {
             // essentially, do nothing
         } else {
             // send the server request to go to pass state for next user 8
+            sendNextPlayer();
+
+            // hide all the buttons
+            globalTrumpButton.visible = false;
+            globalPickButton.visible = false;
         }
     }
 }
 
 function suitChosen() {
+    // save the suit information some how
     euchreGameStage = "playStage";
     enterPlayCardState();
 }

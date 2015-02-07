@@ -14,7 +14,7 @@ var currentTurn; //will be 1,2,3,4
 var pickedUpButtonPressed;
 var switched;
 var removedMiddle;
-var lastUser;
+var lastUser = 4;
 
 function setupOtherUsers() {
     cardBackImage = new Image();
@@ -99,18 +99,36 @@ function enterPickState(isFromServer) {
     }
 }
 
-function enterTrumpState(isFromServer) {
+function setTrumpGameState() {
     euchreGameStage = "trumpStage";
     globalPickButton.visible = false;
+    globalPassButton.visible = false;
+    indexToBMP[globalMiddleCardIndex].visible = false;
+
+    var suitInputContainer = new createjs.Container();
+    gameStage.addChild(suitInputContainer);
+
+
+    var suitInput = new createjs.DOMElement("pickSuitInfo");
+    suitInput.visible = true;
+
+    suitInputContainer.addChild(suitInput);
+    suitInput.x = window.innerWidth / 2 - 50;
+    suitInput.y = 105;
+
+    $("#pickSuitInfo").show();
+}
+
+function enterTrumpState(isFromServer) {
+    setTrumpGameState();
 
     // create an input field for the suit 7
-
 
     if (globalTrumpButton == null) {
         globalTrumpButton = drawButton(gameStage, "Resources/pickSuitButton.png", 310, 350, suitChosen);
     }
     if (globalPassButton == null) {
-        globalPassButton = drawButton(gameStage, "Resources/passButton.png", 300, 420, cardPassed);
+        globalPassButton = drawButton(gameStage, "Resources/passButton.png", 310, 420, cardPassed);
     }
 
     globalTrumpButton.visible = false;
@@ -128,6 +146,9 @@ function enterTrumpState(isFromServer) {
 function enterPlayCardState(isFromServer) {
     euchreGameStage = "playStage";
 
+    $("#pickSuitInfo").hide();
+
+    globalTrumpButton.visible = false;
     globalPassButton.visible = false;
     globalPickButton.visible = false;
 
@@ -172,7 +193,9 @@ function cardPassed() {
 
             // hide all the buttons
             globalTrumpButton.visible = false;
-            globalPickButton.visible = false;
+            globalPassButton.visible = false;
+
+            update = true;
         }
     }
 }
@@ -188,8 +211,6 @@ function initGamePage(cardList, middleCard) {
     pickedUpButtonPressed = false;
     removedMiddle = false;
     switched = false;
-    // get the last user from the server
-    lastUser = 4;
     if (window.top != window) {
         document.getElementById("header").style.display = "none";
     }

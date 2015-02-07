@@ -1,3 +1,17 @@
+Goal -> finish this by first week of February
+1) create an input field for the suit 7 <fixed>
+2) Play the game! (make sure it works)
+3) logic needs to be added: only click on your own cards on your turn
+4) add logic for points, multiple rounds
+5) Add logic for sending information to all users (specifically, a log)
+6) add animation
+
+BUG:
+1) load all games when loading joining a global session <fixed>
+2) do an indication with the button to show you can choose the card
+
+
+Completed old work items:
 roadmap:
 1) when getting the cards, list them correctly <fixed>
 - UI work <fixed>
@@ -12,7 +26,7 @@ a) when clicking on a card, move it up <fixed>
 b) server calls all client js to remove the card <fixed>
 c) client removes the card and puts it in the middle <fixed>
 4) logic needs to be added: only click on your own cards <fixed>
-5) logic for the first phase (pick up/choose trump) 
+5) logic for the first phase (pick up/choose trump) <fixed>
 
 *Broken down below*
 1) clear buttons (from pick state) 1 <fixed>
@@ -25,19 +39,3 @@ c) client removes the card and puts it in the middle <fixed>
 6) send the server request to go to trump state 6 <fixed>
 8) send the server request to go to pass state for next user 8 <fixed>
 9) do not accept the last user 9 <fixed>
-
-Goal -> finish this by end of January
-1) create an input field for the suit 7
-2) Play the game! (make sure it works)
-3) logic needs to be added: only click on your own cards on your turn
-4) add logic for points, multiple rounds
-5) Add logic for sending information to all users
-6) add animation
-
-V1!
-
-BUG:
-1) load all games when loading joining a global session <fixed>
-2) do an indication with the button to show you can choose the card
-
-
